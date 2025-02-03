@@ -1,6 +1,6 @@
 ---
 title: "figure_draft_update"
-author: "Matthew Thornton, Gabriela Eder, Fabian Amman, Anastasiia Pantielieieva, Julia Vierheilig, Andreas Bergthaler"
+author: "Matthew Thornton, Gabriela Eder, Fabian Amman, Anastasiia Pantielieieva, Regina Sommer, Julia Vierheilig, Andreas Bergthaler"
 date: "`r Sys.Date()`"
 output:
   html_document: 
@@ -1636,7 +1636,7 @@ un <- plot_missing_taxa(seq_dat, "UNC")
 
 s7 <- (p | v | n | u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
 
-ggsave(s7, filename = "/home/mthomt69/personal_folder_BACKUP/gitlab/wwdv_manuscript/analysis/publication_ready_figure/supplement_figures/n_missing_taxa.png",
+ggsave(s7, filename = "analysis_and_figures/publication_ready_figure/supplement_figures/n_missing_taxa.png",
        height = 4,
        width = 14,
        units = "in"
@@ -1805,7 +1805,7 @@ nuc <- mod2_dat %>%
 #size / env / nuc + plot_layout(guides = "collect") + ggview::canvas(height = 12, width = 12, units= "in")
 
 f4b <- size / env / nuc + plot_layout(guides = "collect")
-#ggsave(plot= char, filename = "./analysis/exploratory_analysis/final_plots/characteristics_plotted.png", height = 12, width = 12)
+#ggsave(plot= char, filename = "./characteristics_plotted.png", height = 12, width = 12)
 
 f4b
 ```
