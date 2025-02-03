@@ -1,0 +1,418 @@
+﻿,Sample/NTC/Control,Reaction Mix,Target,IC,Control type,Concentration (copies/µL),CI (95%),Partitions (valid),Partitions (positive),Partitions (negative),Threshold,Plate_name
+H1,Direct_Dilute_E1,Spike-in Assay 1,PhiX174,-,-,264.7,2.90%,25398,4591,20807,42.14,WWDv_001e_16112023
+H1,Direct_Dilute_E1,Spike-in Assay 1,Vaccinia,-,-,422.3,2.40%,25273,6887,18386,72.86,WWDv_001e_16112023
+H1,Direct_Dilute_E1,Spike-in Assay 1,Influenza PR8,-,-,1540.4,1.60%,25448,17474,7974,72.04,WWDv_001e_16112023
+H2,Direct_Dilute_E2,Spike-in Assay 1,PhiX174,-,-,320.6,2.70%,25293,5350,19943,42.14,WWDv_001e_16112023
+H2,Direct_Dilute_E2,Spike-in Assay 1,Vaccinia,-,-,472.7,2.30%,25207,7452,17755,72.86,WWDv_001e_16112023
+H2,Direct_Dilute_E2,Spike-in Assay 1,Influenza PR8,-,-,1646,1.60%,25444,17934,7510,66.94,WWDv_001e_16112023
+H3,Direct_Dilute_E3,Spike-in Assay 1,PhiX174,-,-,374.4,2.50%,25246,6122,19124,42.14,WWDv_001e_16112023
+H3,Direct_Dilute_E3,Spike-in Assay 1,Vaccinia,-,-,512.3,2.20%,25295,7996,17299,72.86,WWDv_001e_16112023
+H3,Direct_Dilute_E3,Spike-in Assay 1,Influenza PR8,-,-,1722.2,1.50%,25495,18388,7107,65.03,WWDv_001e_16112023
+G1,Direct_E1,Spike-in Assay 1,PhiX174,-,-,3810.2,1.70%,25421,23898,1523,42.14,WWDv_001e_16112023
+G1,Direct_E1,Spike-in Assay 1,Vaccinia,-,-,6000.3,2.50%,25421,25119,302,72.86,WWDv_001e_16112023
+G1,Direct_E1,Spike-in Assay 1,Influenza PR8,-,-,0,-,25421,0,25421,129.03,WWDv_001e_16112023
+G2,Direct_E2,Spike-in Assay 1,PhiX174,-,-,3615.9,1.70%,25419,23539,1880,42.14,WWDv_001e_16112023
+G2,Direct_E2,Spike-in Assay 1,Vaccinia,-,-,4420.1,1.90%,23404,22434,970,72.86,WWDv_001e_16112023
+G2,Direct_E2,Spike-in Assay 1,Influenza PR8,-,-,0,-,25419,0,25419,136.68,WWDv_001e_16112023
+G3,Direct_E3,Spike-in Assay 1,PhiX174,-,-,4486.7,1.90%,25394,24457,937,42.14,WWDv_001e_16112023
+G3,Direct_E3,Spike-in Assay 1,Vaccinia,-,-,5102.8,2.20%,24556,23980,576,72.86,WWDv_001e_16112023
+G3,Direct_E3,Spike-in Assay 1,Influenza PR8,-,-,0,-,25394,0,25394,145.61,WWDv_001e_16112023
+F3,Direct_Extract_1-10_Dilution_E1,multiplex_probe,LCMV,-,-,110.5,4.50%,25452,1939,23513,85.43,WWDv_001e_14122023
+F3,Direct_Extract_1-10_Dilution_E1,multiplex_probe,MS2,-,-,2580.3,1.50%,25455,21452,4003,105.19,WWDv_001e_14122023
+G3,Direct_Extract_1-10_Dilution_E2,multiplex_probe,LCMV,-,-,111.3,4.40%,25467,2002,23465,65.66,WWDv_001e_14122023
+G3,Direct_Extract_1-10_Dilution_E2,multiplex_probe,MS2,-,-,2436.4,1.50%,25470,21225,4245,104.87,WWDv_001e_14122023
+H3,Direct_Extract_1-10_Dilution_E3,multiplex_probe,LCMV,-,-,113.5,4.30%,25462,2055,23407,65.03,WWDv_001e_14122023
+H3,Direct_Extract_1-10_Dilution_E3,multiplex_probe,MS2,-,-,2464.5,1.50%,25465,21372,4093,107.1,WWDv_001e_14122023
+C3,Direct_Extract_E1,multiplex_probe,LCMV,-,-,1236.9,1.60%,25514,15202,10312,75.86,WWDv_001e_14122023
+C3,Direct_Extract_E1,multiplex_probe,MS2,-,-,0,-,25514,0,25514,194.06,WWDv_001e_14122023
+D3,Direct_Extract_E2,multiplex_probe,LCMV,-,-,1343,1.60%,25508,15828,9680,75.86,WWDv_001e_14122023
+D3,Direct_Extract_E2,multiplex_probe,MS2,-,-,0,-,25508,0,25508,195.33,WWDv_001e_14122023
+E3,Direct_Extract_E3,multiplex_probe,LCMV,-,-,1273,1.60%,25501,15411,10090,64.71,WWDv_001e_14122023
+E3,Direct_Extract_E3,multiplex_probe,MS2,-,-,0,-,25501,0,25501,200.43,WWDv_001e_14122023
+E2,Membrane_E1,Human Astrovirus,Astrovirus,-,-,29.7,8.50%,25363,530,24833,165.11,WWDv_001e_01122023
+E2,Membrane_E1,multiplex_probe,LCMV,-,-,16.96,11.20%,25444,305,25139,88.61,WWDv_001e_05122023
+E2,Membrane_E1,multiplex_probe,MS2,-,-,472.6,2.30%,25294,7220,18074,98.81,WWDv_001e_05122023
+E2,Membrane_E1,Spike-in Assay 1,PhiX174,-,-,109.6,4.50%,25429,1907,23522,46.54,WWDv_001e_15112023
+E2,Membrane_E1,Spike-in Assay 1,Vaccinia,-,-,158.4,3.80%,25417,2708,22709,73.75,WWDv_001e_15112023
+E2,Membrane_E1,Spike-in Assay 1,Influenza PR8,-,-,145,3.90%,25425,2491,22934,64.07,WWDv_001e_15112023
+E2,Membrane_E1,HPV E1,E1,-,-,1857.9,1.50%,25312,18558,6754,95.88,WWDv_001e_17112023
+E2,Membrane_E1,Viral Targets 1,Adenovirus,-,-,37.51,7.60%,25420,669,24751,35.84,WWDv_001e_22112023
+E2,Membrane_E1,Viral Targets 1,HPV6,-,-,0,-,25420,0,25420,146.71,WWDv_001e_22112023
+E2,Membrane_E1,Rotavirus A,RotavirusA,-,-,1.72,35.20%,25360,31,25329,65.28,WWDv_001e_23112024
+F2,Membrane_E2,Human Astrovirus,Astrovirus,-,-,46.32,6.80%,25412,825,24587,179.14,WWDv_001e_01122023
+F2,Membrane_E2,multiplex_probe,LCMV,-,-,16,11.50%,25488,289,25199,88.61,WWDv_001e_05122023
+F2,Membrane_E2,multiplex_probe,MS2,-,-,543.1,2.20%,25153,8072,17081,98.18,WWDv_001e_05122023
+F2,Membrane_E2,Spike-in Assay 1,PhiX174,-,-,123.3,4.20%,25463,2142,23321,45.26,WWDv_001e_15112023
+F2,Membrane_E2,Spike-in Assay 1,Vaccinia,-,-,138.6,4.00%,25454,2394,23060,74.09,WWDv_001e_15112023
+F2,Membrane_E2,Spike-in Assay 1,Influenza PR8,-,-,136.4,4.00%,25457,2358,23099,68.85,WWDv_001e_15112023
+F2,Membrane_E2,HPV E1,E1,-,-,2178.3,1.50%,25490,20092,5398,95.88,WWDv_001e_17112023
+F2,Membrane_E2,Viral Targets 1,Adenovirus,-,-,35.32,7.80%,25468,633,24835,35.84,WWDv_001e_22112023
+F2,Membrane_E2,Viral Targets 1,HPV6,-,-,0,-,25468,0,25468,146.71,WWDv_001e_22112023
+F2,Membrane_E2,Rotavirus A,RotavirusA,-,-,1.213,41.80%,25466,22,25444,60.18,WWDv_001e_23112024
+G2,Membrane_E3,Human Astrovirus,Astrovirus,-,-,236.3,4.40%,12825,2007,10818,102,WWDv_001e_01122023
+G2,Membrane_E3,multiplex_probe,LCMV,-,-,23.24,9.50%,25481,423,25058,85.43,WWDv_001e_05122023
+G2,Membrane_E3,multiplex_probe,MS2,-,-,590.4,2.10%,25107,8696,16411,107.74,WWDv_001e_05122023
+G2,Membrane_E3,Spike-in Assay 1,PhiX174,-,-,135.1,4.00%,25396,2354,23042,47.81,WWDv_001e_15112023
+G2,Membrane_E3,Spike-in Assay 1,Vaccinia,-,-,174.1,3.60%,25403,2994,22409,79.69,WWDv_001e_15112023
+G2,Membrane_E3,Spike-in Assay 1,Influenza PR8,-,-,142.3,3.90%,25408,2475,22933,63.43,WWDv_001e_15112023
+G2,Membrane_E3,HPV E1,E1,-,-,3753.9,1.70%,25491,23784,1707,95.88,WWDv_001e_17112023
+G2,Membrane_E3,Viral Targets 1,Adenovirus,-,-,54.41,6.30%,25423,977,24446,35.84,WWDv_001e_22112023
+G2,Membrane_E3,Viral Targets 1,HPV6,-,-,0,-,25427,0,25427,146.71,WWDv_001e_22112023
+G2,Membrane_E3,Rotavirus A,RotavirusA,-,-,0.928,47.50%,25457,17,25440,55.08,WWDv_001e_23112024
+E2,Membrane_NSC,multiplex_probe,LCMV,-,-,0.386,74.10%,25484,7,25477,44.88,WWDv_001e_14122023
+E2,Membrane_NSC,multiplex_probe,MS2,-,-,0.166,106.40%,25484,3,25481,85.68,WWDv_001e_14122023
+E1,Membrane_NSC,Spike-in Assay 1,PhiX174,-,-,1.021,45.00%,25460,19,25441,42.14,WWDv_001e_16112023
+E1,Membrane_NSC,Spike-in Assay 1,Vaccinia,-,-,0,-,25460,0,25460,79.31,WWDv_001e_16112023
+E1,Membrane_NSC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25460,0,25460,47.43,WWDv_001e_16112023
+G2,Membrane_NTC,multiplex_probe,LCMV,-,-,0.164,106.40%,25474,3,25471,48.71,WWDv_001e_14122023
+G2,Membrane_NTC,multiplex_probe,MS2,-,-,0,-,25474,0,25474,81.86,WWDv_001e_14122023
+E3,Membrane_NTC,Spike-in Assay 1,PhiX174,-,-,0,-,25478,0,25478,42.14,WWDv_001e_16112023
+E3,Membrane_NTC,Spike-in Assay 1,Vaccinia,-,-,0,-,25478,0,25478,79.31,WWDv_001e_16112023
+E3,Membrane_NTC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25478,0,25478,44.88,WWDv_001e_16112023
+F2,Membrane_WSC,multiplex_probe,LCMV,-,-,9.994,14.60%,25366,180,25186,82.24,WWDv_001e_14122023
+F2,Membrane_WSC,multiplex_probe,MS2,-,-,580.3,2.10%,24986,8462,16524,89.89,WWDv_001e_14122023
+E2,Membrane_WSC,Spike-in Assay 1,PhiX174,-,-,8.202,16.10%,25450,148,25302,42.14,WWDv_001e_16112023
+E2,Membrane_WSC,Spike-in Assay 1,Vaccinia,-,-,9.981,14.60%,25450,180,25270,73.65,WWDv_001e_16112023
+E2,Membrane_WSC,Spike-in Assay 1,Influenza PR8,-,-,70.85,5.50%,25442,1250,24192,63.43,WWDv_001e_16112023
+G1,NanoTrap_E1,Human Astrovirus,Astrovirus,-,-,19.42,10.30%,25269,360,24909,170.85,WWDv_001e_01122023
+G1,NanoTrap_E1,multiplex_probe,LCMV,-,-,18.19,10.60%,25402,339,25063,83.19,WWDv_001e_05122023
+G1,NanoTrap_E1,multiplex_probe,MS2,-,-,831.1,1.80%,25402,11655,13747,106.46,WWDv_001e_05122023
+G1,NanoTrap_E1,Spike-in Assay 1,PhiX174,-,-,62.39,5.80%,25439,1146,24293,48.45,WWDv_001e_15112023
+G1,NanoTrap_E1,Spike-in Assay 1,Vaccinia,-,-,47.48,6.60%,25445,877,24568,81.49,WWDv_001e_15112023
+G1,NanoTrap_E1,Spike-in Assay 1,Influenza PR8,-,-,340.3,2.60%,25317,5628,19689,63.43,WWDv_001e_15112023
+G1,NanoTrap_E1,HPV E1,E1,-,-,708.8,2.00%,23565,9606,13959,99.05,WWDv_001e_17112023
+G1,NanoTrap_E1,Viral Targets 1,Adenovirus,-,-,7.099,17.00%,25427,133,25294,35.84,WWDv_001e_22112023
+G1,NanoTrap_E1,Viral Targets 1,HPV6,-,-,0,-,25427,0,25427,146.71,WWDv_001e_22112023
+G1,NanoTrap_E1,Rotavirus A,RotavirusA,-,-,0.266,87.70%,25466,5,25461,69.11,WWDv_001e_23112024
+H1,NanoTrap_E2,Human Astrovirus,Astrovirus,-,-,28.2,8.50%,25259,531,24728,176.59,WWDv_001e_01122023
+H1,NanoTrap_E2,multiplex_probe,LCMV,-,-,16.94,10.90%,25470,323,25147,91.16,WWDv_001e_05122023
+H1,NanoTrap_E2,multiplex_probe,MS2,-,-,724,1.90%,25470,10707,14763,107.74,WWDv_001e_05122023
+H1,NanoTrap_E2,Spike-in Assay 1,PhiX174,-,-,55.94,6.10%,25422,1049,24373,45.9,WWDv_001e_15112023
+H1,NanoTrap_E2,Spike-in Assay 1,Vaccinia,-,-,40.29,7.10%,25422,760,24662,77.54,WWDv_001e_15112023
+H1,NanoTrap_E2,Spike-in Assay 1,Influenza PR8,-,-,348.8,2.60%,25294,5845,19449,63.43,WWDv_001e_15112023
+H1,NanoTrap_E2,HPV E1,E1,-,-,1079.8,1.80%,22911,12754,10157,109.61,WWDv_001e_17112023
+H1,NanoTrap_E2,Viral Targets 1,Adenovirus,-,-,4.806,20.40%,25457,92,25365,35.84,WWDv_001e_22112023
+H1,NanoTrap_E2,Viral Targets 1,HPV6,-,-,0,-,25457,0,25457,146.71,WWDv_001e_22112023
+H1,NanoTrap_E2,Rotavirus A,RotavirusA,-,-,0.417,69.30%,25479,8,25471,61.46,WWDv_001e_23112024
+A2,NanoTrap_E3,Human Astrovirus,Astrovirus,-,-,16.51,11.10%,25338,312,25026,178.5,WWDv_001e_01122023
+A2,NanoTrap_E3,multiplex_probe,LCMV,-,-,21.4,9.80%,25366,404,24962,92.12,WWDv_001e_05122023
+A2,NanoTrap_E3,multiplex_probe,MS2,-,-,811.8,1.90%,25366,11571,13795,121.13,WWDv_001e_05122023
+A2,NanoTrap_E3,Spike-in Assay 1,PhiX174,-,-,73.02,5.30%,25416,1355,24061,47.81,WWDv_001e_15112023
+A2,NanoTrap_E3,Spike-in Assay 1,Vaccinia,-,-,35.92,7.50%,25423,676,24747,81.98,WWDv_001e_15112023
+A2,NanoTrap_E3,Spike-in Assay 1,Influenza PR8,-,-,369.7,2.50%,25262,6120,19142,68.53,WWDv_001e_15112023
+A2,NanoTrap_E3,HPV E1,E1,-,-,1193.1,1.70%,23525,13914,9611,112.84,WWDv_001e_17112023
+A2,NanoTrap_E3,Viral Targets 1,Adenovirus,-,-,7.305,16.60%,25431,139,25292,35.84,WWDv_001e_22112023
+A2,NanoTrap_E3,Viral Targets 1,HPV6,-,-,0,-,25431,0,25431,146.71,WWDv_001e_22112023
+A2,NanoTrap_E3,Rotavirus A,RotavirusA,-,-,0.158,106.40%,25386,3,25383,65.28,WWDv_001e_23112024
+G1,NanoTrap_NSC,multiplex_probe,LCMV,-,-,0,-,25480,0,25480,48.71,WWDv_001e_14122023
+G1,NanoTrap_NSC,multiplex_probe,MS2,-,-,0.053,147.50%,25480,1,25479,93.33,WWDv_001e_14122023
+C1,NanoTrap_NSC,Spike-in Assay 1,PhiX174,-,-,1.381,38.40%,25458,26,25432,42.14,WWDv_001e_16112023
+C1,NanoTrap_NSC,Spike-in Assay 1,Vaccinia,-,-,0,-,25458,0,25458,81.86,WWDv_001e_16112023
+C1,NanoTrap_NSC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25458,0,25458,44.88,WWDv_001e_16112023
+A2,NanoTrap_NTC,multiplex_probe,LCMV,-,-,0.105,119.00%,25482,2,25480,51.26,WWDv_001e_14122023
+A2,NanoTrap_NTC,multiplex_probe,MS2,-,-,0,-,25482,0,25482,98.43,WWDv_001e_14122023
+C3,NanoTrap_NTC,Spike-in Assay 1,PhiX174,-,-,0,-,25450,0,25450,42.14,WWDv_001e_16112023
+C3,NanoTrap_NTC,Spike-in Assay 1,Vaccinia,-,-,0,-,25450,0,25450,90.78,WWDv_001e_16112023
+C3,NanoTrap_NTC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25450,0,25450,52.53,WWDv_001e_16112023
+H1,NanoTrap_WSC,multiplex_probe,LCMV,-,-,0.782,50.60%,25473,15,25458,48.71,WWDv_001e_14122023
+H1,NanoTrap_WSC,multiplex_probe,MS2,-,-,8.574,15.30%,25473,164,25309,117.94,WWDv_001e_14122023
+C2,NanoTrap_WSC,Spike-in Assay 1,PhiX174,-,-,1.375,39.20%,25483,25,25458,42.14,WWDv_001e_16112023
+C2,NanoTrap_WSC,Spike-in Assay 1,Vaccinia,-,-,1.1,43.80%,25483,20,25463,73.9,WWDv_001e_16112023
+C2,NanoTrap_WSC,Spike-in Assay 1,Influenza PR8,-,-,6.891,17.50%,25482,125,25357,71.4,WWDv_001e_16112023
+H2,PEG_E1,Human Astrovirus,Astrovirus,-,-,168.3,3.60%,25318,2970,22348,168.94,WWDv_001e_01122023
+H2,PEG_E1,multiplex_probe,LCMV,-,-,43.97,6.90%,25472,817,24655,74.59,WWDv_001e_05122023
+H2,PEG_E1,multiplex_probe,MS2,-,-,4252.2,1.80%,25474,24385,1089,105.19,WWDv_001e_05122023
+H2,PEG_E1,Spike-in Assay 1,PhiX174,-,-,860.8,1.80%,25469,12015,13454,43.99,WWDv_001e_15112023
+H2,PEG_E1,Spike-in Assay 1,Vaccinia,-,-,10.26,14.10%,25469,193,25276,76.12,WWDv_001e_15112023
+H2,PEG_E1,Spike-in Assay 1,Influenza PR8,-,-,1196.4,1.70%,25469,14978,10491,61.71,WWDv_001e_15112023
+H2,PEG_E1,HPV E1,E1,-,-,2595.7,1.60%,24992,21344,3648,87.06,WWDv_001e_17112023
+H2,PEG_E1,Viral Targets 1,Adenovirus,-,-,15.23,11.60%,25477,286,25191,35.84,WWDv_001e_22112023
+H2,PEG_E1,Viral Targets 1,HPV6,-,-,0,-,25477,0,25477,146.71,WWDv_001e_22112023
+H2,PEG_E1,Rotavirus A,RotavirusA,-,-,1.432,37.70%,25438,27,25411,49.22,WWDv_001e_23112024
+A3,PEG_E2,Human Astrovirus,Astrovirus,-,-,144.7,3.90%,25245,2592,22653,156.51,WWDv_001e_01122023
+A3,PEG_E2,multiplex_probe,LCMV,-,-,56.34,6.00%,25420,1050,24370,93.71,WWDv_001e_05122023
+A3,PEG_E2,multiplex_probe,MS2,-,-,5653.6,2.40%,25426,25057,369,116.66,WWDv_001e_05122023
+A3,PEG_E2,Spike-in Assay 1,PhiX174,-,-,1069.9,1.70%,25268,13926,11342,38.89,WWDv_001e_15112023
+A3,PEG_E2,Spike-in Assay 1,Vaccinia,-,-,10.88,13.70%,25268,205,25063,71.7,WWDv_001e_15112023
+A3,PEG_E2,Spike-in Assay 1,Influenza PR8,-,-,1497,1.60%,25268,17030,8238,61.71,WWDv_001e_15112023
+A3,PEG_E2,HPV E1,E1,-,-,3742,1.70%,24902,23390,1512,87.06,WWDv_001e_17112023
+A3,PEG_E2,Viral Targets 1,Adenovirus,-,-,14.75,11.70%,25399,279,25120,35.84,WWDv_001e_22112023
+A3,PEG_E2,Viral Targets 1,HPV6,-,-,0,-,25399,0,25399,146.71,WWDv_001e_22112023
+A3,PEG_E2,Rotavirus A,RotavirusA,-,-,1.159,41.80%,25373,22,25351,37.23,WWDv_001e_23112024
+B3,PEG_E3,Human Astrovirus,Astrovirus,-,-,215.2,3.20%,25320,3723,21597,156.83,WWDv_001e_01122023
+B3,PEG_E3,multiplex_probe,LCMV,-,-,40.54,7.10%,25481,752,24729,79.69,WWDv_001e_05122023
+B3,PEG_E3,multiplex_probe,MS2,-,-,4026.1,1.80%,25483,24182,1301,119.21,WWDv_001e_05122023
+B3,PEG_E3,Spike-in Assay 1,PhiX174,-,-,742.9,1.90%,25360,10713,14647,45.26,WWDv_001e_15112023
+B3,PEG_E3,Spike-in Assay 1,Vaccinia,-,-,7.332,16.70%,25356,137,25219,75.69,WWDv_001e_15112023
+B3,PEG_E3,Spike-in Assay 1,Influenza PR8,-,-,1110.8,1.70%,25360,14199,11161,61.71,WWDv_001e_15112023
+B3,PEG_E3,HPV E1,E1,-,-,2507.5,1.50%,25319,21349,3970,87.06,WWDv_001e_17112023
+B3,PEG_E3,Viral Targets 1,Adenovirus,-,-,9.492,14.70%,25468,178,25290,35.84,WWDv_001e_22112023
+B3,PEG_E3,Viral Targets 1,HPV6,-,-,0,-,25468,0,25468,146.71,WWDv_001e_22112023
+B3,PEG_E3,Rotavirus A,RotavirusA,-,-,1.066,43.80%,25404,20,25384,32.13,WWDv_001e_23112024
+H2,PEG_NSC,multiplex_probe,LCMV,-,-,0,-,25474,0,25474,46.16,WWDv_001e_14122023
+H2,PEG_NSC,multiplex_probe,MS2,-,-,0.106,119.00%,25474,2,25472,99.71,WWDv_001e_14122023
+F1,PEG_NSC,Spike-in Assay 1,PhiX174,-,-,5.143,20.00%,25478,96,25382,42.14,WWDv_001e_16112023
+F1,PEG_NSC,Spike-in Assay 1,Vaccinia,-,-,0,-,25479,0,25479,81.86,WWDv_001e_16112023
+F1,PEG_NSC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25479,0,25479,46.16,WWDv_001e_16112023
+B3,PEG_NTC,multiplex_probe,LCMV,-,-,0.372,74.10%,25481,7,25474,70.38,WWDv_001e_14122023
+B3,PEG_NTC,multiplex_probe,MS2,-,-,0.053,147.50%,25481,1,25480,98.43,WWDv_001e_14122023
+F3,PEG_NTC,Spike-in Assay 1,PhiX174,-,-,0,-,25454,0,25454,42.14,WWDv_001e_16112023
+F3,PEG_NTC,Spike-in Assay 1,Vaccinia,-,-,0,-,25454,0,25454,80.58,WWDv_001e_16112023
+F3,PEG_NTC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25454,0,25454,46.16,WWDv_001e_16112023
+A3,PEG_WSC,multiplex_probe,LCMV,-,-,1.839,33.10%,25433,35,25398,51.89,WWDv_001e_14122023
+A3,PEG_WSC,multiplex_probe,MS2,-,-,48.61,6.50%,25433,909,24524,112.52,WWDv_001e_14122023
+F2,PEG_WSC,Spike-in Assay 1,PhiX174,-,-,14.32,12.20%,25416,258,25158,42.14,WWDv_001e_16112023
+F2,PEG_WSC,Spike-in Assay 1,Vaccinia,-,-,20.24,10.30%,25414,364,25050,72.61,WWDv_001e_16112023
+F2,PEG_WSC,Spike-in Assay 1,Influenza PR8,-,-,311.6,2.80%,25339,5045,20294,73.95,WWDv_001e_16112023
+B2,Ultrafiltration_E1,Human Astrovirus,Astrovirus,-,-,34.05,7.90%,25256,619,24637,166.39,WWDv_001e_01122023
+B2,Ultrafiltration_E1,multiplex_probe,LCMV,-,-,1.46,37.70%,25385,27,25358,54.44,WWDv_001e_05122023
+B2,Ultrafiltration_E1,multiplex_probe,MS2,-,-,2702.4,1.60%,25385,21843,3542,107.42,WWDv_001e_05122023
+B2,Ultrafiltration_E1,Spike-in Assay 1,PhiX174,-,-,464,2.30%,25043,7185,17858,46.54,WWDv_001e_15112023
+B2,Ultrafiltration_E1,Spike-in Assay 1,Vaccinia,-,-,19.75,10.30%,25190,360,24830,75.45,WWDv_001e_15112023
+B2,Ultrafiltration_E1,Spike-in Assay 1,Influenza PR8,-,-,214.7,3.20%,25176,3647,21529,70.13,WWDv_001e_15112023
+B2,Ultrafiltration_E1,HPV E1,E1,-,-,1640.3,1.60%,24624,17173,7451,92.73,WWDv_001e_17112023
+B2,Ultrafiltration_E1,Viral Targets 1,Adenovirus,-,-,15.06,11.80%,25461,278,25183,35.84,WWDv_001e_22112023
+B2,Ultrafiltration_E1,Viral Targets 1,HPV6,-,-,0,-,25461,0,25461,146.71,WWDv_001e_22112023
+B2,Ultrafiltration_E1,Rotavirus A,RotavirusA,-,-,0.216,98.00%,25394,4,25390,47.43,WWDv_001e_23112024
+C2,Ultrafiltration_E2,Human Astrovirus,Astrovirus,-,-,41.85,7.20%,25355,746,24609,162.56,WWDv_001e_01122023
+C2,Ultrafiltration_E2,multiplex_probe,LCMV,-,-,1.926,33.10%,25478,35,25443,87.34,WWDv_001e_05122023
+C2,Ultrafiltration_E2,multiplex_probe,MS2,-,-,2581.6,1.50%,25164,21177,3987,114.11,WWDv_001e_05122023
+C2,Ultrafiltration_E2,Spike-in Assay 1,PhiX174,-,-,415.9,2.40%,25413,6527,18886,45.9,WWDv_001e_15112023
+C2,Ultrafiltration_E2,Spike-in Assay 1,Vaccinia,-,-,32.88,8.10%,25482,591,24891,77.85,WWDv_001e_15112023
+C2,Ultrafiltration_E2,Spike-in Assay 1,Influenza PR8,-,-,146.9,3.90%,25476,2536,22940,65.66,WWDv_001e_15112023
+C2,Ultrafiltration_E2,HPV E1,E1,-,-,1454.5,1.60%,25482,16457,9025,92.73,WWDv_001e_17112023
+C2,Ultrafiltration_E2,Viral Targets 1,Adenovirus,-,-,19.55,10.40%,25477,353,25124,35.84,WWDv_001e_22112023
+C2,Ultrafiltration_E2,Viral Targets 1,HPV6,-,-,0,-,25481,0,25481,146.71,WWDv_001e_22112023
+C2,Ultrafiltration_E2,Rotavirus A,RotavirusA,-,-,0.275,87.70%,25440,5,25435,62.73,WWDv_001e_23112024
+D2,Ultrafiltration_E3,Human Astrovirus,Astrovirus,-,-,57.96,6.20%,25272,1012,24260,159.69,WWDv_001e_01122023
+D2,Ultrafiltration_E3,multiplex_probe,LCMV,-,-,2.956,26.90%,25457,53,25404,88.61,WWDv_001e_05122023
+D2,Ultrafiltration_E3,multiplex_probe,MS2,-,-,3040.5,1.60%,25457,22474,2983,104.55,WWDv_001e_05122023
+D2,Ultrafiltration_E3,Spike-in Assay 1,PhiX174,-,-,635.5,2.10%,25264,9125,16139,40.8,WWDv_001e_15112023
+D2,Ultrafiltration_E3,Spike-in Assay 1,Vaccinia,-,-,18.91,10.70%,25438,337,25101,75.91,WWDv_001e_15112023
+D2,Ultrafiltration_E3,Spike-in Assay 1,Influenza PR8,-,-,246.9,3.10%,25397,4058,21339,61.2,WWDv_001e_15112023
+D2,Ultrafiltration_E3,HPV E1,E1,-,-,1303.7,1.60%,25297,15209,10088,87.61,WWDv_001e_17112023
+D2,Ultrafiltration_E3,Viral Targets 1,Adenovirus,-,-,30.43,8.40%,25436,540,24896,35.84,WWDv_001e_22112023
+D2,Ultrafiltration_E3,Viral Targets 1,HPV6,-,-,0,-,25436,0,25436,146.71,WWDv_001e_22112023
+D2,Ultrafiltration_E3,Rotavirus A,RotavirusA,-,-,0.112,119.00%,25437,2,25435,55.08,WWDv_001e_23112024
+B2,Ultrafiltration_NSC,multiplex_probe,LCMV,-,-,0.054,147.50%,25497,1,25496,44.88,WWDv_001e_14122023
+B2,Ultrafiltration_NSC,multiplex_probe,MS2,-,-,0.108,119.00%,25497,2,25495,88.23,WWDv_001e_14122023
+D1,Ultrafiltration_NSC,Spike-in Assay 1,PhiX174,-,-,4.271,21.90%,25463,80,25383,42.14,WWDv_001e_16112023
+D1,Ultrafiltration_NSC,Spike-in Assay 1,Vaccinia,-,-,0,-,25463,0,25463,80.58,WWDv_001e_16112023
+D1,Ultrafiltration_NSC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25463,0,25463,47.43,WWDv_001e_16112023
+D2,Ultrafiltration_NTC,multiplex_probe,LCMV,-,-,0.223,98.00%,25398,4,25394,44.88,WWDv_001e_14122023
+D2,Ultrafiltration_NTC,multiplex_probe,MS2,-,-,0,-,25398,0,25398,88.23,WWDv_001e_14122023
+D3,Ultrafiltration_NTC,Spike-in Assay 1,PhiX174,-,-,0,-,25485,0,25485,42.14,WWDv_001e_16112023
+D3,Ultrafiltration_NTC,Spike-in Assay 1,Vaccinia,-,-,0,-,25485,0,25485,83.13,WWDv_001e_16112023
+D3,Ultrafiltration_NTC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25485,0,25485,49.98,WWDv_001e_16112023
+C2,Ultrafiltration_WSC,multiplex_probe,LCMV,-,-,0.88,49.00%,25475,16,25459,44.88,WWDv_001e_14122023
+C2,Ultrafiltration_WSC,multiplex_probe,MS2,-,-,2442.4,1.50%,25475,21017,4458,106.46,WWDv_001e_14122023
+D2,Ultrafiltration_WSC,Spike-in Assay 1,PhiX174,-,-,32.18,8.20%,25447,571,24876,42.14,WWDv_001e_16112023
+D2,Ultrafiltration_WSC,Spike-in Assay 1,Vaccinia,-,-,10.74,14.10%,25444,192,25252,72.18,WWDv_001e_16112023
+D2,Ultrafiltration_WSC,Spike-in Assay 1,Influenza PR8,-,-,99.64,4.70%,25439,1726,23713,63.11,WWDv_001e_16112023
+F3,Unconcentrated_E1,Human Astrovirus,Astrovirus,-,-,127.9,4.20%,25369,2223,23146,149.81,WWDv_001e_01122023
+F3,Unconcentrated_E1,multiplex_probe,LCMV,-,-,0,-,25410,0,25410,49.98,WWDv_001e_05122023
+F3,Unconcentrated_E1,multiplex_probe,MS2,-,-,0,-,25410,0,25410,89.51,WWDv_001e_05122023
+F3,Unconcentrated_E1,Spike-in Assay 1,PhiX174,-,-,0,-,25445,0,25445,58.87,WWDv_001e_15112023
+F3,Unconcentrated_E1,Spike-in Assay 1,Vaccinia,-,-,0,-,25445,0,25445,79.31,WWDv_001e_15112023
+F3,Unconcentrated_E1,Spike-in Assay 1,Influenza PR8,-,-,0,-,25445,0,25445,60.18,WWDv_001e_15112023
+F3,Unconcentrated_E1,HPV E1,E1,-,-,428,2.40%,25270,6677,18593,75.52,WWDv_001e_17112023
+F3,Unconcentrated_E1,Viral Targets 1,Adenovirus,-,-,0.988,46.20%,25422,18,25404,35.84,WWDv_001e_22112023
+F3,Unconcentrated_E1,Viral Targets 1,HPV6,-,-,0,-,25422,0,25422,146.71,WWDv_001e_22112023
+F3,Unconcentrated_E1,Rotavirus A,RotavirusA,-,-,0,-,25318,0,25318,128.45,WWDv_001e_23112024
+G3,Unconcentrated_E2,Human Astrovirus,Astrovirus,-,-,92.61,4.80%,25395,1672,23723,145.03,WWDv_001e_01122023
+G3,Unconcentrated_E2,multiplex_probe,LCMV,-,-,0.053,147.50%,25470,1,25469,46.16,WWDv_001e_05122023
+G3,Unconcentrated_E2,multiplex_probe,MS2,-,-,0.107,119.00%,25470,2,25468,86.96,WWDv_001e_05122023
+G3,Unconcentrated_E2,Spike-in Assay 1,PhiX174,-,-,0,-,25394,0,25394,58.87,WWDv_001e_15112023
+G3,Unconcentrated_E2,Spike-in Assay 1,Vaccinia,-,-,0,-,25394,0,25394,74.21,WWDv_001e_15112023
+G3,Unconcentrated_E2,Spike-in Assay 1,Influenza PR8,-,-,0,-,25394,0,25394,55.08,WWDv_001e_15112023
+G3,Unconcentrated_E2,HPV E1,E1,-,-,666,2.00%,25265,9784,15481,75.52,WWDv_001e_17112023
+G3,Unconcentrated_E2,Viral Targets 1,Adenovirus,-,-,1.665,35.20%,25339,31,25308,35.84,WWDv_001e_22112023
+G3,Unconcentrated_E2,Viral Targets 1,HPV6,-,-,0,-,25339,0,25339,146.71,WWDv_001e_22112023
+G3,Unconcentrated_E2,Rotavirus A,RotavirusA,-,-,0,-,25435,0,25435,29.58,WWDv_001e_23112024
+H3,Unconcentrated_E3,Human Astrovirus,Astrovirus,-,-,78.21,5.20%,25372,1430,23942,150.77,WWDv_001e_01122023
+H3,Unconcentrated_E3,multiplex_probe,LCMV,-,-,0,-,25469,0,25469,48.71,WWDv_001e_05122023
+H3,Unconcentrated_E3,multiplex_probe,MS2,-,-,0,-,25469,0,25469,89.51,WWDv_001e_05122023
+H3,Unconcentrated_E3,Spike-in Assay 1,PhiX174,-,-,0,-,25429,0,25429,58.87,WWDv_001e_15112023
+H3,Unconcentrated_E3,Spike-in Assay 1,Vaccinia,-,-,0,-,25429,0,25429,71.66,WWDv_001e_15112023
+H3,Unconcentrated_E3,Spike-in Assay 1,Influenza PR8,-,-,0,-,25429,0,25429,55.08,WWDv_001e_15112023
+H3,Unconcentrated_E3,HPV E1,E1,-,-,796.7,1.90%,25158,11225,13933,75.52,WWDv_001e_17112023
+H3,Unconcentrated_E3,Viral Targets 1,Adenovirus,-,-,2.174,30.60%,25448,41,25407,35.84,WWDv_001e_22112023
+H3,Unconcentrated_E3,Viral Targets 1,HPV6,-,-,0,-,25448,0,25448,146.71,WWDv_001e_22112023
+H3,Unconcentrated_E3,Rotavirus A,RotavirusA,-,-,0,-,21057,0,21057,35.96,WWDv_001e_23112024
+C3,Unconcentrated_Spike_E1,Human Astrovirus,Astrovirus,-,-,66.03,5.70%,25439,1201,24238,154.28,WWDv_001e_01122023
+C3,Unconcentrated_Spike_E1,multiplex_probe,MS2,-,-,106.2,4.50%,25426,1902,23524,105.19,WWDv_001e_05122023
+C3,Unconcentrated_Spike_E1,Spike-in Assay 1,PhiX174,-,-,17.55,10.90%,25451,325,25126,49.09,WWDv_001e_15112023
+C3,Unconcentrated_Spike_E1,Spike-in Assay 1,Vaccinia,-,-,2.094,33.10%,25453,35,25418,74.69,WWDv_001e_15112023
+C3,Unconcentrated_Spike_E1,Spike-in Assay 1,Influenza PR8,-,-,35.54,7.70%,25453,654,24799,78.41,WWDv_001e_15112023
+C3,Unconcentrated_Spike_E1,HPV E1,E1,-,-,879.4,1.80%,25484,12101,13383,88.75,WWDv_001e_17112023
+C3,Unconcentrated_Spike_E1,Viral Targets 1,Adenovirus,-,-,0.967,46.20%,25418,18,25400,35.84,WWDv_001e_22112023
+C3,Unconcentrated_Spike_E1,Viral Targets 1,HPV6,-,-,0,-,25418,0,25418,146.71,WWDv_001e_22112023
+C3,Unconcentrated_Spike_E1,Rotavirus A,RotavirusA,-,-,0,-,25438,0,25438,39.78,WWDv_001e_23112024
+D3,Unconcentrated_Spike_E2,Human Astrovirus,Astrovirus,-,-,55.78,6.20%,25352,1000,24352,159.38,WWDv_001e_01122023
+D3,Unconcentrated_Spike_E2,multiplex_probe,MS2,-,-,113,4.40%,25428,1990,23438,99.45,WWDv_001e_05122023
+D3,Unconcentrated_Spike_E2,Spike-in Assay 1,PhiX174,-,-,17.37,11.00%,25459,317,25142,45.26,WWDv_001e_15112023
+D3,Unconcentrated_Spike_E2,Spike-in Assay 1,Vaccinia,-,-,1.307,59.10%,25461,11,25450,75.54,WWDv_001e_15112023
+D3,Unconcentrated_Spike_E2,Spike-in Assay 1,Influenza PR8,-,-,38.31,7.40%,25457,694,24763,73.95,WWDv_001e_15112023
+D3,Unconcentrated_Spike_E2,HPV E1,E1,-,-,762.7,1.90%,25099,10622,14477,88.75,WWDv_001e_17112023
+D3,Unconcentrated_Spike_E2,Viral Targets 1,Adenovirus,-,-,1.798,34.10%,25459,33,25426,35.84,WWDv_001e_22112023
+D3,Unconcentrated_Spike_E2,Viral Targets 1,HPV6,-,-,0,-,25459,0,25459,146.71,WWDv_001e_22112023
+D3,Unconcentrated_Spike_E2,Rotavirus A,RotavirusA,-,-,0,-,25397,0,25397,37.23,WWDv_001e_23112024
+E3,Unconcentrated_Spike_E3,Human Astrovirus,Astrovirus,-,-,51.84,6.40%,25314,938,24376,157.46,WWDv_001e_01122023
+E3,Unconcentrated_Spike_E3,multiplex_probe,MS2,-,-,97.66,4.70%,25417,1745,23672,103.28,WWDv_001e_05122023
+E3,Unconcentrated_Spike_E3,Spike-in Assay 1,PhiX174,-,-,18.32,10.70%,25497,338,25159,45.9,WWDv_001e_15112023
+E3,Unconcentrated_Spike_E3,Spike-in Assay 1,Vaccinia,-,-,2.587,35.20%,25497,31,25466,80.13,WWDv_001e_15112023
+E3,Unconcentrated_Spike_E3,Spike-in Assay 1,Influenza PR8,-,-,33.75,7.90%,25495,619,24876,69.49,WWDv_001e_15112023
+E3,Unconcentrated_Spike_E3,HPV E1,E1,-,-,1030.3,1.70%,25293,13350,11943,88.75,WWDv_001e_17112023
+E3,Unconcentrated_Spike_E3,Viral Targets 1,Adenovirus,-,-,2.321,29.90%,25456,43,25413,35.84,WWDv_001e_22112023
+E3,Unconcentrated_Spike_E3,Viral Targets 1,HPV6,-,-,0,-,25456,0,25456,146.71,WWDv_001e_22112023
+E3,Unconcentrated_Spike_E3,Rotavirus A,RotavirusA,-,-,0,-,25439,0,25439,130.3,WWDv_001e_23112024
+A1,VacMan_Liquid_E1,Human Astrovirus,Astrovirus,-,-,42.36,6.90%,25332,799,24533,172.76,WWDv_001e_01122023
+A1,VacMan_Liquid_E1,multiplex_probe,LCMV,-,-,98.6,4.60%,25473,1831,23642,82.87,WWDv_001e_05122023
+A1,VacMan_Liquid_E1,multiplex_probe,MS2,-,-,6661,3.00%,25473,25308,165,133.88,WWDv_001e_05122023
+A1,VacMan_Liquid_E1,Spike-in Assay 1,PhiX174,-,-,987.8,1.70%,25419,13380,12039,49.09,WWDv_001e_15112023
+A1,VacMan_Liquid_E1,Spike-in Assay 1,Vaccinia,-,-,11.65,13.10%,25419,223,25196,88.2,WWDv_001e_15112023
+A1,VacMan_Liquid_E1,Spike-in Assay 1,Influenza PR8,-,-,2414.5,1.50%,25419,21328,4091,69.17,WWDv_001e_15112023
+A1,VacMan_Liquid_E1,HPV E1,E1,-,-,328,2.90%,20900,4593,16307,115.91,WWDv_001e_17112023
+A1,VacMan_Liquid_E1,Viral Targets 1,Adenovirus,-,-,76.03,5.20%,25100,1403,23697,35.84,WWDv_001e_22112023
+A1,VacMan_Liquid_E1,Viral Targets 1,HPV6,-,-,0,-,25427,0,25427,146.71,WWDv_001e_22112023
+A1,VacMan_Liquid_E1,Rotavirus A,RotavirusA,-,-,1.507,36.40%,25457,29,25428,79.31,WWDv_001e_23112024
+B1,VacMan_Liquid_E2,Human Astrovirus,Astrovirus,-,-,45.14,6.80%,25365,843,24522,174.04,WWDv_001e_01122023
+B1,VacMan_Liquid_E2,multiplex_probe,LCMV,-,-,111.1,4.40%,25430,2030,23400,59.93,WWDv_001e_05122023
+B1,VacMan_Liquid_E2,multiplex_probe,MS2,-,-,7025.7,3.30%,25433,25301,132,101.04,WWDv_001e_05122023
+B1,VacMan_Liquid_E2,Spike-in Assay 1,PhiX174,-,-,1044.8,1.70%,25349,13756,11593,43.99,WWDv_001e_15112023
+B1,VacMan_Liquid_E2,Spike-in Assay 1,Vaccinia,-,-,13.56,12.20%,25349,256,25093,77.79,WWDv_001e_15112023
+B1,VacMan_Liquid_E2,Spike-in Assay 1,Influenza PR8,-,-,2619.9,1.60%,25349,21785,3564,75.54,WWDv_001e_15112023
+B1,VacMan_Liquid_E2,HPV E1,E1,-,-,195,3.40%,24899,3382,21517,104.55,WWDv_001e_17112023
+B1,VacMan_Liquid_E2,Viral Targets 1,Adenovirus,-,-,134,4.00%,25454,2431,23023,35.84,WWDv_001e_22112023
+B1,VacMan_Liquid_E2,Viral Targets 1,HPV6,-,-,0,-,25460,0,25460,146.71,WWDv_001e_22112023
+B1,VacMan_Liquid_E2,Rotavirus A,RotavirusA,-,-,2.842,26.70%,25398,54,25344,84.15,WWDv_001e_23112024
+C1,VacMan_Liquid_E3,Human Astrovirus,Astrovirus,-,-,61.28,5.80%,25429,1127,24302,167.66,WWDv_001e_01122023
+C1,VacMan_Liquid_E3,multiplex_probe,LCMV,-,-,107.7,4.40%,25460,1950,23510,68.21,WWDv_001e_05122023
+C1,VacMan_Liquid_E3,multiplex_probe,MS2,-,-,7198.2,3.30%,25478,25354,124,113.79,WWDv_001e_05122023
+C1,VacMan_Liquid_E3,Spike-in Assay 1,PhiX174,-,-,833.2,1.80%,25483,11725,13758,47.81,WWDv_001e_15112023
+C1,VacMan_Liquid_E3,Spike-in Assay 1,Vaccinia,-,-,10.65,13.90%,25483,200,25283,80.45,WWDv_001e_15112023
+C1,VacMan_Liquid_E3,Spike-in Assay 1,Influenza PR8,-,-,2444.5,1.50%,25483,21306,4177,74.59,WWDv_001e_15112023
+C1,VacMan_Liquid_E3,HPV E1,E1,-,-,180.5,3.50%,24955,3119,21836,108.31,WWDv_001e_17112023
+C1,VacMan_Liquid_E3,Viral Targets 1,Adenovirus,-,-,119.2,4.20%,25451,2148,23303,35.84,WWDv_001e_22112023
+C1,VacMan_Liquid_E3,Viral Targets 1,HPV6,-,-,0,-,25457,0,25457,146.71,WWDv_001e_22112023
+C1,VacMan_Liquid_E3,Rotavirus A,RotavirusA,-,-,1.647,35.20%,25465,31,25434,69.49,WWDv_001e_23112024
+A1,VacMan_Liquid_NSC,multiplex_probe,LCMV,-,-,0,-,25472,0,25472,57.63,WWDv_001e_14122023
+A1,VacMan_Liquid_NSC,multiplex_probe,MS2,-,-,0.104,119.00%,25472,2,25470,117.56,WWDv_001e_14122023
+A1,VacMan_Liquid_NSC,Spike-in Assay 1,PhiX174,-,-,7.094,16.80%,25408,136,25272,42.14,WWDv_001e_16112023
+A1,VacMan_Liquid_NSC,Spike-in Assay 1,Vaccinia,-,-,0,-,25409,0,25409,92.06,WWDv_001e_16112023
+A1,VacMan_Liquid_NSC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25409,0,25409,52.53,WWDv_001e_16112023
+C1,VacMan_Liquid_NTC,multiplex_probe,LCMV,-,-,0,-,25487,0,25487,49.98,WWDv_001e_14122023
+C1,VacMan_Liquid_NTC,multiplex_probe,MS2,-,-,0,-,25487,0,25487,92.06,WWDv_001e_14122023
+A3,VacMan_Liquid_NTC,Spike-in Assay 1,PhiX174,-,-,0,-,25428,0,25428,42.14,WWDv_001e_16112023
+A3,VacMan_Liquid_NTC,Spike-in Assay 1,Vaccinia,-,-,0,-,25428,0,25428,86.96,WWDv_001e_16112023
+A3,VacMan_Liquid_NTC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25428,0,25428,57.63,WWDv_001e_16112023
+B1,VacMan_Liquid_WSC,multiplex_probe,LCMV,-,-,13.17,12.40%,25478,250,25228,87.34,WWDv_001e_14122023
+B1,VacMan_Liquid_WSC,multiplex_probe,MS2,-,-,837.6,1.80%,25478,11871,13607,104.55,WWDv_001e_14122023
+A2,VacMan_Liquid_WSC,Spike-in Assay 1,PhiX174,-,-,163.6,3.60%,25400,2934,22466,42.14,WWDv_001e_16112023
+A2,VacMan_Liquid_WSC,Spike-in Assay 1,Vaccinia,-,-,37.92,7.30%,25418,713,24705,77.26,WWDv_001e_16112023
+A2,VacMan_Liquid_WSC,Spike-in Assay 1,Influenza PR8,-,-,487,2.20%,25164,7702,17462,73.95,WWDv_001e_16112023
+D1,VacMan_Pellet_E1,Human Astrovirus,Astrovirus,-,-,48.85,6.60%,25288,894,24394,172.13,WWDv_001e_01122023
+D1,VacMan_Pellet_E1,multiplex_probe,LCMV,-,-,4.537,21.30%,25470,85,25385,90.53,WWDv_001e_05122023
+D1,VacMan_Pellet_E1,multiplex_probe,MS2,-,-,49.93,6.50%,25471,920,24551,102.96,WWDv_001e_05122023
+D1,VacMan_Pellet_E1,Spike-in Assay 1,PhiX174,-,-,8.02,16.00%,25460,150,25310,48.45,WWDv_001e_15112023
+D1,VacMan_Pellet_E1,Spike-in Assay 1,Vaccinia,-,-,1.867,33.10%,25458,35,25423,79.42,WWDv_001e_15112023
+D1,VacMan_Pellet_E1,Spike-in Assay 1,Influenza PR8,-,-,148.2,3.80%,25451,2633,22818,74.59,WWDv_001e_15112023
+D1,VacMan_Pellet_E1,HPV E1,E1,-,-,76.52,5.20%,25466,1396,24070,108.46,WWDv_001e_17112023
+D1,VacMan_Pellet_E1,Viral Targets 1,Adenovirus,-,-,3.895,22.90%,25474,73,25401,35.84,WWDv_001e_22112023
+D1,VacMan_Pellet_E1,Viral Targets 1,HPV6,-,-,0,-,25475,0,25475,146.71,WWDv_001e_22112023
+D1,VacMan_Pellet_E1,Rotavirus A,RotavirusA,-,-,0.16,106.40%,25432,3,25429,51.26,WWDv_001e_23112024
+E1,VacMan_Pellet_E2,Human Astrovirus,Astrovirus,-,-,40.98,7.20%,25335,748,24587,154.91,WWDv_001e_01122023
+E1,VacMan_Pellet_E2,multiplex_probe,LCMV,-,-,5.164,20.00%,25470,96,25374,92.44,WWDv_001e_05122023
+E1,VacMan_Pellet_E2,multiplex_probe,MS2,-,-,55.56,6.20%,25466,1014,24452,103.91,WWDv_001e_05122023
+E1,VacMan_Pellet_E2,Spike-in Assay 1,PhiX174,-,-,10.29,14.20%,25471,191,25280,51.64,WWDv_001e_15112023
+E1,VacMan_Pellet_E2,Spike-in Assay 1,Vaccinia,-,-,0,-,25471,0,25471,90.78,WWDv_001e_15112023
+E1,VacMan_Pellet_E2,Spike-in Assay 1,Influenza PR8,-,-,136.9,4.00%,25457,2426,23031,69.17,WWDv_001e_15112023
+E1,VacMan_Pellet_E2,HPV E1,E1,-,-,87.87,4.90%,25435,1583,23852,108.46,WWDv_001e_17112023
+E1,VacMan_Pellet_E2,Viral Targets 1,Adenovirus,-,-,5.65,19.10%,25464,105,25359,35.84,WWDv_001e_22112023
+E1,VacMan_Pellet_E2,Viral Targets 1,HPV6,-,-,0,-,25464,0,25464,146.71,WWDv_001e_22112023
+E1,VacMan_Pellet_E2,Rotavirus A,RotavirusA,-,-,0.59,59.10%,25481,11,25470,52.53,WWDv_001e_23112024
+F1,VacMan_Pellet_E3,Human Astrovirus,Astrovirus,-,-,33.62,7.90%,25151,613,24538,176.59,WWDv_001e_01122023
+F1,VacMan_Pellet_E3,multiplex_probe,LCMV,-,-,5.035,20.20%,25481,94,25387,89.89,WWDv_001e_05122023
+F1,VacMan_Pellet_E3,multiplex_probe,MS2,-,-,57.11,6.10%,25481,1046,24435,97.54,WWDv_001e_05122023
+F1,VacMan_Pellet_E3,Spike-in Assay 1,PhiX174,-,-,10.42,14.10%,25475,194,25281,49.73,WWDv_001e_15112023
+F1,VacMan_Pellet_E3,Spike-in Assay 1,Vaccinia,-,-,2.891,26.70%,25475,54,25421,81.82,WWDv_001e_15112023
+F1,VacMan_Pellet_E3,Spike-in Assay 1,Influenza PR8,-,-,157,3.70%,25461,2771,22690,65.03,WWDv_001e_15112023
+F1,VacMan_Pellet_E3,HPV E1,E1,-,-,90.02,4.90%,24946,1595,23351,108.46,WWDv_001e_17112023
+F1,VacMan_Pellet_E3,Viral Targets 1,Adenovirus,-,-,16.74,11.10%,25473,311,25162,35.84,WWDv_001e_22112023
+F1,VacMan_Pellet_E3,Viral Targets 1,HPV6,-,-,0,-,25473,0,25473,146.71,WWDv_001e_22112023
+F1,VacMan_Pellet_E3,Rotavirus A,RotavirusA,-,-,0.535,62.00%,25488,10,25478,60.18,WWDv_001e_23112024
+D1,VacMan_Pellet_NSC,multiplex_probe,LCMV,-,-,0.053,147.50%,25474,1,25473,41.06,WWDv_001e_14122023
+D1,VacMan_Pellet_NSC,multiplex_probe,MS2,-,-,0,-,25474,0,25474,80.58,WWDv_001e_14122023
+B1,VacMan_Pellet_NSC,Spike-in Assay 1,PhiX174,-,-,0.997,45.00%,25464,19,25445,42.14,WWDv_001e_16112023
+B1,VacMan_Pellet_NSC,Spike-in Assay 1,Vaccinia,-,-,0,-,25465,0,25465,79.31,WWDv_001e_16112023
+B1,VacMan_Pellet_NSC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25465,0,25465,49.98,WWDv_001e_16112023
+F1,VacMan_Pellet_NTC,multiplex_probe,LCMV,-,-,0,-,25481,0,25481,39.78,WWDv_001e_14122023
+F1,VacMan_Pellet_NTC,multiplex_probe,MS2,-,-,0,-,25481,0,25481,85.68,WWDv_001e_14122023
+B3,VacMan_Pellet_NTC,Spike-in Assay 1,PhiX174,-,-,0,-,25466,0,25466,42.14,WWDv_001e_16112023
+B3,VacMan_Pellet_NTC,Spike-in Assay 1,Vaccinia,-,-,0,-,25466,0,25466,80.58,WWDv_001e_16112023
+B3,VacMan_Pellet_NTC,Spike-in Assay 1,Influenza PR8,-,-,0,-,25466,0,25466,55.08,WWDv_001e_16112023
+E1,VacMan_Pellet_WSC,multiplex_probe,LCMV,-,-,0.537,62.00%,25478,10,25468,62.73,WWDv_001e_14122023
+E1,VacMan_Pellet_WSC,multiplex_probe,MS2,-,-,28.91,8.50%,25478,533,24945,105.83,WWDv_001e_14122023
+B2,VacMan_Pellet_WSC,Spike-in Assay 1,PhiX174,-,-,0.646,56.60%,25498,12,25486,42.14,WWDv_001e_16112023
+B2,VacMan_Pellet_WSC,Spike-in Assay 1,Vaccinia,-,-,8.963,15.20%,25496,166,25330,72.41,WWDv_001e_16112023
+B2,VacMan_Pellet_WSC,Spike-in Assay 1,Influenza PR8,-,-,22.08,9.70%,25498,407,25091,59.93,WWDv_001e_16112023
+A1,VacMan_Liquid_E1,Viral Mix,Norovirus,-,-,928.7,1.80%,25379,12778,12601,14.83,WWDv_001e_MT_22102024
+A1,VacMan_Liquid_E1,Viral Mix,RSV,-,-,0.105,119.00%,25379,2,25377,32.27,WWDv_001e_MT_22102024
+A1,VacMan_Liquid_E1,Viral Mix,Enterovirus,-,-,18.26,10.50%,25379,347,25032,19.48,WWDv_001e_MT_22102024
+B1,VacMan_Liquid_E2,Viral Mix,Norovirus,-,-,1018.3,1.70%,25463,13462,12001,14.83,WWDv_001e_MT_22102024
+B1,VacMan_Liquid_E2,Viral Mix,RSV,-,-,0.053,147.50%,25463,1,25462,32.27,WWDv_001e_MT_22102024
+B1,VacMan_Liquid_E2,Viral Mix,Enterovirus,-,-,14.65,11.80%,25463,274,25189,19.48,WWDv_001e_MT_22102024
+C1,VacMan_Liquid_E3,Viral Mix,Norovirus,-,-,977.2,1.80%,25486,13025,12461,14.83,WWDv_001e_MT_22102024
+C1,VacMan_Liquid_E3,Viral Mix,RSV,-,-,0.054,147.50%,25486,1,25485,32.27,WWDv_001e_MT_22102024
+C1,VacMan_Liquid_E3,Viral Mix,Enterovirus,-,-,12.76,12.70%,25486,237,25249,19.48,WWDv_001e_MT_22102024
+D1,NanoTrap_E1,Viral Mix,Norovirus,-,-,172.2,3.60%,25453,3021,22432,14.83,WWDv_001e_MT_22102024
+D1,NanoTrap_E1,Viral Mix,RSV,-,-,0.107,119.00%,25462,2,25460,32.27,WWDv_001e_MT_22102024
+D1,NanoTrap_E1,Viral Mix,Enterovirus,-,-,5.203,19.90%,25462,97,25365,19.48,WWDv_001e_MT_22102024
+E1,NanoTrap_E2,Viral Mix,Norovirus,-,-,198.4,3.30%,25460,3447,22013,14.83,WWDv_001e_MT_22102024
+E1,NanoTrap_E2,Viral Mix,RSV,-,-,0,-,25485,0,25485,32.27,WWDv_001e_MT_22102024
+E1,NanoTrap_E2,Viral Mix,Enterovirus,-,-,3.806,23.30%,25485,71,25414,19.48,WWDv_001e_MT_22102024
+F1,NanoTrap_E3,Viral Mix,Norovirus,-,-,175.8,3.50%,25444,3074,22370,14.83,WWDv_001e_MT_22102024
+F1,NanoTrap_E3,Viral Mix,RSV,-,-,0,-,25456,0,25456,32.27,WWDv_001e_MT_22102024
+F1,NanoTrap_E3,Viral Mix,Enterovirus,-,-,3.275,25.10%,25456,61,25395,19.48,WWDv_001e_MT_22102024
+G1,Ultrafiltration_E1,Viral Mix,Norovirus,-,-,173.6,3.60%,25474,3034,22440,14.83,WWDv_001e_MT_22102024
+G1,Ultrafiltration_E1,Viral Mix,RSV,-,-,0,-,25489,0,25489,32.27,WWDv_001e_MT_22102024
+G1,Ultrafiltration_E1,Viral Mix,Enterovirus,-,-,7.001,17.20%,25487,130,25357,19.48,WWDv_001e_MT_22102024
+H1,Ultrafiltration_E2,Viral Mix,Norovirus,-,-,149.4,3.80%,25413,2704,22709,14.83,WWDv_001e_MT_22102024
+H1,Ultrafiltration_E2,Viral Mix,RSV,-,-,0,-,25419,0,25419,32.27,WWDv_001e_MT_22102024
+H1,Ultrafiltration_E2,Viral Mix,Enterovirus,-,-,6.545,17.50%,25419,125,25294,19.48,WWDv_001e_MT_22102024
+A2,Ultrafiltration_E3,Viral Mix,Norovirus,-,-,212.7,3.20%,25477,3729,21748,14.83,WWDv_001e_MT_22102024
+A2,Ultrafiltration_E3,Viral Mix,RSV,-,-,0,-,25483,0,25483,32.27,WWDv_001e_MT_22102024
+A2,Ultrafiltration_E3,Viral Mix,Enterovirus,-,-,7.244,16.70%,25483,137,25346,19.48,WWDv_001e_MT_22102024
+B2,Membrane_E1,Viral Mix,Norovirus,-,-,97.53,4.70%,25479,1707,23772,14.83,WWDv_001e_MT_22102024
+B2,Membrane_E1,Viral Mix,RSV,-,-,0.055,147.50%,25479,1,25478,32.27,WWDv_001e_MT_22102024
+B2,Membrane_E1,Viral Mix,Enterovirus,-,-,3.703,23.90%,25479,67,25412,19.48,WWDv_001e_MT_22102024
+C2,Membrane_E2,Viral Mix,Norovirus,-,-,95.5,4.80%,25398,1671,23727,14.83,WWDv_001e_MT_22102024
+C2,Membrane_E2,Viral Mix,RSV,-,-,0,-,25398,0,25398,32.27,WWDv_001e_MT_22102024
+C2,Membrane_E2,Viral Mix,Enterovirus,-,-,5.259,20.10%,25398,95,25303,19.48,WWDv_001e_MT_22102024
+D2,Membrane_E3,Viral Mix,Norovirus,-,-,108.6,4.50%,25350,1865,23485,14.83,WWDv_001e_MT_22102024
+D2,Membrane_E3,Viral Mix,RSV,-,-,0,-,25358,0,25358,32.27,WWDv_001e_MT_22102024
+D2,Membrane_E3,Viral Mix,Enterovirus,-,-,7.868,16.60%,25358,140,25218,19.48,WWDv_001e_MT_22102024
+E2,PEG_E1,Viral Mix,Norovirus,-,-,515.4,2.20%,25266,7704,17562,14.83,WWDv_001e_MT_22102024
+E2,PEG_E1,Viral Mix,RSV,-,-,0.111,119.00%,25470,2,25468,32.27,WWDv_001e_MT_22102024
+E2,PEG_E1,Viral Mix,Enterovirus,-,-,14.77,12.10%,25470,264,25206,19.48,WWDv_001e_MT_22102024
+F2,PEG_E2,Viral Mix,Norovirus,-,-,640.3,2.10%,25092,9158,15934,14.83,WWDv_001e_MT_22102024
+F2,PEG_E2,Viral Mix,RSV,-,-,0.111,119.00%,25372,2,25370,32.27,WWDv_001e_MT_22102024
+F2,PEG_E2,Viral Mix,Enterovirus,-,-,18.8,10.70%,25372,336,25036,19.48,WWDv_001e_MT_22102024
+G2,PEG_E3,Viral Mix,Norovirus,-,-,484.8,2.30%,25254,7451,17803,14.83,WWDv_001e_MT_22102024
+G2,PEG_E3,Viral Mix,RSV,-,-,0,-,25449,0,25449,32.27,WWDv_001e_MT_22102024
+G2,PEG_E3,Viral Mix,Enterovirus,-,-,13.74,12.40%,25449,251,25198,19.48,WWDv_001e_MT_22102024
+H2,Unconcentrated_Spike_E1,Viral Mix,Norovirus,-,-,19,10.40%,25432,355,25077,14.83,WWDv_001e_MT_22102024
+H2,Unconcentrated_Spike_E1,Viral Mix,RSV,-,-,0,-,25432,0,25432,32.27,WWDv_001e_MT_22102024
+H2,Unconcentrated_Spike_E1,Viral Mix,Enterovirus,-,-,0.585,59.10%,25432,11,25421,19.48,WWDv_001e_MT_22102024
+A3,Unconcentrated_Spike_E2,Viral Mix,Norovirus,-,-,18.5,10.50%,25448,350,25098,14.83,WWDv_001e_MT_22102024
+A3,Unconcentrated_Spike_E2,Viral Mix,RSV,-,-,0,-,25448,0,25448,32.27,WWDv_001e_MT_22102024
+A3,Unconcentrated_Spike_E2,Viral Mix,Enterovirus,-,-,0.893,47.50%,25448,17,25431,19.48,WWDv_001e_MT_22102024
+B3,Unconcentrated_Spike_E3,Viral Mix,Norovirus,-,-,23.28,9.40%,25461,433,25028,14.83,WWDv_001e_MT_22102024
+B3,Unconcentrated_Spike_E3,Viral Mix,RSV,-,-,0,-,25463,0,25463,32.27,WWDv_001e_MT_22102024
+B3,Unconcentrated_Spike_E3,Viral Mix,Enterovirus,-,-,1.013,45.00%,25463,19,25444,19.48,WWDv_001e_MT_22102024
+C3,NTC_H2O,Viral Mix,Norovirus,-,-,0,-,25278,0,25278,14.83,WWDv_001e_MT_22102024
+C3,NTC_H2O,Viral Mix,RSV,-,-,0,-,25278,0,25278,32.27,WWDv_001e_MT_22102024
+C3,NTC_H2O,Viral Mix,Enterovirus,-,-,0,-,25278,0,25278,19.48,WWDv_001e_MT_22102024
+A1,Unconcentrated_Spike_E1,LCMV,LCMV,-,-,0.359771029,74%,25408,7,25401,37.23,WWDv_001e_25102024
+B1,Unconcentrated_Spike_E2,LCMV,LCMV,-,-,0.526366955,62%,25471,10,25461,38.51,WWDv_001e_25102024
+C1,Unconcentrated_Spike_E3,LCMV,LCMV,-,-,0.42522628,69%,25467,8,25459,41.06,WWDv_001e_25102024

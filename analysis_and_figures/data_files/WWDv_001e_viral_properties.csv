@@ -1,0 +1,13 @@
+Virus name,Type,Enveloped,Size [nm],Nucleic Acid,Shape
+Vaccinia Virus,Spike-in,Yes,260,ds DNA,Ellipse
+Influenza-PR8,Spike-in,Yes,100,ss(-) RNA,Ellipse
+"LCMV (Arm, Cl13; 1:1)",Spike-in,Yes,100,ss(-) RNA,Spherical
+Phage PhiX174,Spike-in,No,25,ss(+) DNA,Icosahedral
+Bacteriophage MS2,Spike-in,No,27,ss(+) RNA,Icosahedral
+SARS-CoV-2,Endogenous,Yes,100,ss(+) RNA,Spherical
+PMMoV,Endogenous,No,18 x 312,ss(+) RNA,Rod
+"Adenovirus (40, 41)",Endogenous,No,80,ds DNA,Polyhedral
+Rotavirus A,Endogenous,No,75,dsRNA,Icosahedral
+Enterovirus,Endogenous,No,30,ss(+) RNA,Icosahedral
+Norovirus,Endogenous,No,39,ss(+) RNA,Icosahedral
+Bacterial 16S,Endogenous,NA,NA,NA,NA

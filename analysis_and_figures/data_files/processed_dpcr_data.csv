@@ -1,0 +1,367 @@
+Sample,Target,Concentration,Replicate,Method,Concentration_adj,Viral_type
+Direct_Extract_1-10_Dilution,LCMV,1105,R1,DE,1105,Spike-in
+Direct_Extract_1-10_Dilution,MS2,25803,R1,DE,25803,Spike-in
+Direct_Extract_1-10_Dilution,LCMV,1113,R2,DE,1113,Spike-in
+Direct_Extract_1-10_Dilution,MS2,24364,R2,DE,24364,Spike-in
+Direct_Extract_1-10_Dilution,LCMV,1135,R3,DE,1135,Spike-in
+Direct_Extract_1-10_Dilution,MS2,24645,R3,DE,24645,Spike-in
+Direct_Dilute,PhiX174,264.7,R1,DE,264.7,Spike-in
+Direct_Dilute,Vaccinia,422.3,R1,DE,422.3,Spike-in
+Direct_Dilute,Influenza PR8,1540.4,R1,DE,1540.4,Spike-in
+Direct_Dilute,PhiX174,320.6,R2,DE,320.6,Spike-in
+Direct_Dilute,Vaccinia,472.7,R2,DE,472.7,Spike-in
+Direct_Dilute,Influenza PR8,1646,R2,DE,1646,Spike-in
+Direct_Dilute,PhiX174,374.4,R3,DE,374.4,Spike-in
+Direct_Dilute,Vaccinia,512.3,R3,DE,512.3,Spike-in
+Direct_Dilute,Influenza PR8,1722.2,R3,DE,1722.2,Spike-in
+Membrane,Astrovirus,29.7,R1,MEM,29.7,Endogenous
+Membrane,LCMV,16.96,R1,MEM,16.96,Spike-in
+Membrane,MS2,472.6,R1,MEM,472.6,Spike-in
+Membrane,PhiX174,109.6,R1,MEM,109.6,Spike-in
+Membrane,Vaccinia,158.4,R1,MEM,158.4,Spike-in
+Membrane,Influenza PR8,145,R1,MEM,145,Spike-in
+Membrane,HPV-E1,1857.9,R1,MEM,1857.9,Endogenous
+Membrane,Adenovirus,37.51,R1,MEM,37.51,Endogenous
+Membrane,RotavirusA,1.72,R1,MEM,1.72,Endogenous
+Membrane,Astrovirus,46.32,R2,MEM,46.32,Endogenous
+Membrane,LCMV,16,R2,MEM,16,Spike-in
+Membrane,MS2,543.1,R2,MEM,543.1,Spike-in
+Membrane,PhiX174,123.3,R2,MEM,123.3,Spike-in
+Membrane,Vaccinia,138.6,R2,MEM,138.6,Spike-in
+Membrane,Influenza PR8,136.4,R2,MEM,136.4,Spike-in
+Membrane,HPV-E1,2178.3,R2,MEM,2178.3,Endogenous
+Membrane,Adenovirus,35.32,R2,MEM,35.32,Endogenous
+Membrane,RotavirusA,1.213,R2,MEM,1.213,Endogenous
+Membrane,Astrovirus,236.3,R3,MEM,236.3,Endogenous
+Membrane,LCMV,23.24,R3,MEM,23.24,Spike-in
+Membrane,MS2,590.4,R3,MEM,590.4,Spike-in
+Membrane,PhiX174,135.1,R3,MEM,135.1,Spike-in
+Membrane,Vaccinia,174.1,R3,MEM,174.1,Spike-in
+Membrane,Influenza PR8,142.3,R3,MEM,142.3,Spike-in
+Membrane,HPV-E1,3753.9,R3,MEM,3753.9,Endogenous
+Membrane,Adenovirus,54.41,R3,MEM,54.41,Endogenous
+Membrane,RotavirusA,0.928,R3,MEM,0.928,Endogenous
+NanoTrap,Astrovirus,19.42,R1,NT,77.68,Endogenous
+NanoTrap,LCMV,18.19,R1,NT,72.76,Spike-in
+NanoTrap,MS2,831.1,R1,NT,3324.4,Spike-in
+NanoTrap,PhiX174,62.39,R1,NT,249.56,Spike-in
+NanoTrap,Vaccinia,47.48,R1,NT,189.92,Spike-in
+NanoTrap,Influenza PR8,340.3,R1,NT,1361.2,Spike-in
+NanoTrap,HPV-E1,708.8,R1,NT,2835.2,Endogenous
+NanoTrap,Adenovirus,7.099,R1,NT,28.396,Endogenous
+NanoTrap,RotavirusA,0.266,R1,NT,1.064,Endogenous
+NanoTrap,Astrovirus,28.2,R2,NT,112.8,Endogenous
+NanoTrap,LCMV,16.94,R2,NT,67.76,Spike-in
+NanoTrap,MS2,724,R2,NT,2896,Spike-in
+NanoTrap,PhiX174,55.94,R2,NT,223.76,Spike-in
+NanoTrap,Vaccinia,40.29,R2,NT,161.16,Spike-in
+NanoTrap,Influenza PR8,348.8,R2,NT,1395.2,Spike-in
+NanoTrap,HPV-E1,1079.8,R2,NT,4319.2,Endogenous
+NanoTrap,Adenovirus,4.806,R2,NT,19.224,Endogenous
+NanoTrap,RotavirusA,0.417,R2,NT,1.668,Endogenous
+NanoTrap,Astrovirus,16.51,R3,NT,66.04,Endogenous
+NanoTrap,LCMV,21.4,R3,NT,85.6,Spike-in
+NanoTrap,MS2,811.8,R3,NT,3247.2,Spike-in
+NanoTrap,PhiX174,73.02,R3,NT,292.08,Spike-in
+NanoTrap,Vaccinia,35.92,R3,NT,143.68,Spike-in
+NanoTrap,Influenza PR8,369.7,R3,NT,1478.8,Spike-in
+NanoTrap,HPV-E1,1193.1,R3,NT,4772.4,Endogenous
+NanoTrap,Adenovirus,7.305,R3,NT,29.22,Endogenous
+NanoTrap,RotavirusA,0.158,R3,NT,0.632,Endogenous
+PEG,Astrovirus,168.3,R1,PEG,168.3,Endogenous
+PEG,LCMV,43.97,R1,PEG,43.97,Spike-in
+PEG,MS2,4252.2,R1,PEG,4252.2,Spike-in
+PEG,PhiX174,860.8,R1,PEG,860.8,Spike-in
+PEG,Vaccinia,10.26,R1,PEG,10.26,Spike-in
+PEG,Influenza PR8,1196.4,R1,PEG,1196.4,Spike-in
+PEG,HPV-E1,2595.7,R1,PEG,2595.7,Endogenous
+PEG,Adenovirus,15.23,R1,PEG,15.23,Endogenous
+PEG,RotavirusA,1.432,R1,PEG,1.432,Endogenous
+PEG,Astrovirus,144.7,R2,PEG,144.7,Endogenous
+PEG,LCMV,56.34,R2,PEG,56.34,Spike-in
+PEG,MS2,5653.6,R2,PEG,5653.6,Spike-in
+PEG,PhiX174,1069.9,R2,PEG,1069.9,Spike-in
+PEG,Vaccinia,10.88,R2,PEG,10.88,Spike-in
+PEG,Influenza PR8,1497,R2,PEG,1497,Spike-in
+PEG,HPV-E1,3742,R2,PEG,3742,Endogenous
+PEG,Adenovirus,14.75,R2,PEG,14.75,Endogenous
+PEG,RotavirusA,1.159,R2,PEG,1.159,Endogenous
+PEG,Astrovirus,215.2,R3,PEG,215.2,Endogenous
+PEG,LCMV,40.54,R3,PEG,40.54,Spike-in
+PEG,MS2,4026.1,R3,PEG,4026.1,Spike-in
+PEG,PhiX174,742.9,R3,PEG,742.9,Spike-in
+PEG,Vaccinia,7.332,R3,PEG,7.332,Spike-in
+PEG,Influenza PR8,1110.8,R3,PEG,1110.8,Spike-in
+PEG,HPV-E1,2507.5,R3,PEG,2507.5,Endogenous
+PEG,Adenovirus,9.492,R3,PEG,9.492,Endogenous
+PEG,RotavirusA,1.066,R3,PEG,1.066,Endogenous
+Ultrafiltration,Astrovirus,34.05,R1,UF,34.05,Endogenous
+Ultrafiltration,LCMV,1.46,R1,UF,1.46,Spike-in
+Ultrafiltration,MS2,2702.4,R1,UF,2702.4,Spike-in
+Ultrafiltration,PhiX174,464,R1,UF,464,Spike-in
+Ultrafiltration,Vaccinia,19.75,R1,UF,19.75,Spike-in
+Ultrafiltration,Influenza PR8,214.7,R1,UF,214.7,Spike-in
+Ultrafiltration,HPV-E1,1640.3,R1,UF,1640.3,Endogenous
+Ultrafiltration,Adenovirus,15.06,R1,UF,15.06,Endogenous
+Ultrafiltration,RotavirusA,0.216,R1,UF,0.216,Endogenous
+Ultrafiltration,Astrovirus,41.85,R2,UF,41.85,Endogenous
+Ultrafiltration,LCMV,1.926,R2,UF,1.926,Spike-in
+Ultrafiltration,MS2,2581.6,R2,UF,2581.6,Spike-in
+Ultrafiltration,PhiX174,415.9,R2,UF,415.9,Spike-in
+Ultrafiltration,Vaccinia,32.88,R2,UF,32.88,Spike-in
+Ultrafiltration,Influenza PR8,146.9,R2,UF,146.9,Spike-in
+Ultrafiltration,HPV-E1,1454.5,R2,UF,1454.5,Endogenous
+Ultrafiltration,Adenovirus,19.55,R2,UF,19.55,Endogenous
+Ultrafiltration,RotavirusA,0.275,R2,UF,0.275,Endogenous
+Ultrafiltration,Astrovirus,57.96,R3,UF,57.96,Endogenous
+Ultrafiltration,LCMV,2.956,R3,UF,2.956,Spike-in
+Ultrafiltration,MS2,3040.5,R3,UF,3040.5,Spike-in
+Ultrafiltration,PhiX174,635.5,R3,UF,635.5,Spike-in
+Ultrafiltration,Vaccinia,18.91,R3,UF,18.91,Spike-in
+Ultrafiltration,Influenza PR8,246.9,R3,UF,246.9,Spike-in
+Ultrafiltration,HPV-E1,1303.7,R3,UF,1303.7,Endogenous
+Ultrafiltration,Adenovirus,30.43,R3,UF,30.43,Endogenous
+Ultrafiltration,RotavirusA,0.112,R3,UF,0.112,Endogenous
+Unconcentrated,Astrovirus,127.9,R1,UNC,10232,Endogenous
+Unconcentrated,LCMV,0,R1,UNC,0,Spike-in
+Unconcentrated,MS2,0,R1,UNC,0,Spike-in
+Unconcentrated,PhiX174,0,R1,UNC,0,Spike-in
+Unconcentrated,Vaccinia,0,R1,UNC,0,Spike-in
+Unconcentrated,Influenza PR8,0,R1,UNC,0,Spike-in
+Unconcentrated,HPV-E1,428,R1,UNC,34240,Endogenous
+Unconcentrated,Adenovirus,0.988,R1,UNC,79.04,Endogenous
+Unconcentrated,RotavirusA,0,R1,UNC,0,Endogenous
+Unconcentrated,Astrovirus,92.61,R2,UNC,7408.8,Endogenous
+Unconcentrated,LCMV,0.053,R2,UNC,4.24,Spike-in
+Unconcentrated,MS2,0.107,R2,UNC,8.56,Spike-in
+Unconcentrated,PhiX174,0,R2,UNC,0,Spike-in
+Unconcentrated,Vaccinia,0,R2,UNC,0,Spike-in
+Unconcentrated,Influenza PR8,0,R2,UNC,0,Spike-in
+Unconcentrated,HPV-E1,666,R2,UNC,53280,Endogenous
+Unconcentrated,Adenovirus,1.665,R2,UNC,133.2,Endogenous
+Unconcentrated,RotavirusA,0,R2,UNC,0,Endogenous
+Unconcentrated,Astrovirus,78.21,R3,UNC,6256.8,Endogenous
+Unconcentrated,LCMV,0,R3,UNC,0,Spike-in
+Unconcentrated,MS2,0,R3,UNC,0,Spike-in
+Unconcentrated,PhiX174,0,R3,UNC,0,Spike-in
+Unconcentrated,Vaccinia,0,R3,UNC,0,Spike-in
+Unconcentrated,Influenza PR8,0,R3,UNC,0,Spike-in
+Unconcentrated,HPV-E1,796.7,R3,UNC,63736,Endogenous
+Unconcentrated,Adenovirus,2.174,R3,UNC,173.92,Endogenous
+Unconcentrated,RotavirusA,0,R3,UNC,0,Endogenous
+Unconcentrated_Spike,Astrovirus,66.03,R1,UNC_Sp,5282.4,Endogenous
+Unconcentrated_Spike,MS2,106.2,R1,UNC_Sp,8496,Spike-in
+Unconcentrated_Spike,PhiX174,17.55,R1,UNC_Sp,1404,Spike-in
+Unconcentrated_Spike,Vaccinia,2.094,R1,UNC_Sp,167.52,Spike-in
+Unconcentrated_Spike,Influenza PR8,35.54,R1,UNC_Sp,2843.2,Spike-in
+Unconcentrated_Spike,HPV-E1,879.4,R1,UNC_Sp,70352,Endogenous
+Unconcentrated_Spike,Adenovirus,0.967,R1,UNC_Sp,77.36,Endogenous
+Unconcentrated_Spike,RotavirusA,0,R1,UNC_Sp,0,Endogenous
+Unconcentrated_Spike,Astrovirus,55.78,R2,UNC_Sp,4462.4,Endogenous
+Unconcentrated_Spike,MS2,113,R2,UNC_Sp,9040,Spike-in
+Unconcentrated_Spike,PhiX174,17.37,R2,UNC_Sp,1389.6,Spike-in
+Unconcentrated_Spike,Vaccinia,1.307,R2,UNC_Sp,104.56,Spike-in
+Unconcentrated_Spike,Influenza PR8,38.31,R2,UNC_Sp,3064.8,Spike-in
+Unconcentrated_Spike,HPV-E1,762.7,R2,UNC_Sp,61016,Endogenous
+Unconcentrated_Spike,Adenovirus,1.798,R2,UNC_Sp,143.84,Endogenous
+Unconcentrated_Spike,RotavirusA,0,R2,UNC_Sp,0,Endogenous
+Unconcentrated_Spike,Astrovirus,51.84,R3,UNC_Sp,4147.2,Endogenous
+Unconcentrated_Spike,MS2,97.66,R3,UNC_Sp,7812.8,Spike-in
+Unconcentrated_Spike,PhiX174,18.32,R3,UNC_Sp,1465.6,Spike-in
+Unconcentrated_Spike,Vaccinia,2.587,R3,UNC_Sp,206.96,Spike-in
+Unconcentrated_Spike,Influenza PR8,33.75,R3,UNC_Sp,2700,Spike-in
+Unconcentrated_Spike,HPV-E1,1030.3,R3,UNC_Sp,82424,Endogenous
+Unconcentrated_Spike,Adenovirus,2.321,R3,UNC_Sp,185.68,Endogenous
+Unconcentrated_Spike,RotavirusA,0,R3,UNC_Sp,0,Endogenous
+Vac. direct capture,Astrovirus,42.36,R1,VDC,42.36,Endogenous
+Vac. direct capture,LCMV,98.6,R1,VDC,98.6,Spike-in
+Vac. direct capture,MS2,6661,R1,VDC,6661,Spike-in
+Vac. direct capture,PhiX174,987.8,R1,VDC,987.8,Spike-in
+Vac. direct capture,Vaccinia,11.65,R1,VDC,11.65,Spike-in
+Vac. direct capture,Influenza PR8,2414.5,R1,VDC,2414.5,Spike-in
+Vac. direct capture,HPV-E1,328,R1,VDC,328,Endogenous
+Vac. direct capture,Adenovirus,76.03,R1,VDC,76.03,Endogenous
+Vac. direct capture,RotavirusA,1.507,R1,VDC,1.507,Endogenous
+Vac. direct capture,Astrovirus,45.14,R2,VDC,45.14,Endogenous
+Vac. direct capture,LCMV,111.1,R2,VDC,111.1,Spike-in
+Vac. direct capture,MS2,7025.7,R2,VDC,7025.7,Spike-in
+Vac. direct capture,PhiX174,1044.8,R2,VDC,1044.8,Spike-in
+Vac. direct capture,Vaccinia,13.56,R2,VDC,13.56,Spike-in
+Vac. direct capture,Influenza PR8,2619.9,R2,VDC,2619.9,Spike-in
+Vac. direct capture,HPV-E1,195,R2,VDC,195,Endogenous
+Vac. direct capture,Adenovirus,134,R2,VDC,134,Endogenous
+Vac. direct capture,RotavirusA,2.842,R2,VDC,2.842,Endogenous
+Vac. direct capture,Astrovirus,61.28,R3,VDC,61.28,Endogenous
+Vac. direct capture,LCMV,107.7,R3,VDC,107.7,Spike-in
+Vac. direct capture,MS2,7198.2,R3,VDC,7198.2,Spike-in
+Vac. direct capture,PhiX174,833.2,R3,VDC,833.2,Spike-in
+Vac. direct capture,Vaccinia,10.65,R3,VDC,10.65,Spike-in
+Vac. direct capture,Influenza PR8,2444.5,R3,VDC,2444.5,Spike-in
+Vac. direct capture,HPV-E1,180.5,R3,VDC,180.5,Endogenous
+Vac. direct capture,Adenovirus,119.2,R3,VDC,119.2,Endogenous
+Vac. direct capture,RotavirusA,1.647,R3,VDC,1.647,Endogenous
+Vac. direct capture Pellet,Astrovirus,48.85,R1,VDCP,48.85,Endogenous
+Vac. direct capture Pellet,LCMV,4.537,R1,VDCP,4.537,Spike-in
+Vac. direct capture Pellet,MS2,49.93,R1,VDCP,49.93,Spike-in
+Vac. direct capture Pellet,PhiX174,8.02,R1,VDCP,8.02,Spike-in
+Vac. direct capture Pellet,Vaccinia,1.867,R1,VDCP,1.867,Spike-in
+Vac. direct capture Pellet,Influenza PR8,148.2,R1,VDCP,148.2,Spike-in
+Vac. direct capture Pellet,HPV-E1,76.52,R1,VDCP,76.52,Endogenous
+Vac. direct capture Pellet,Adenovirus,3.895,R1,VDCP,3.895,Endogenous
+Vac. direct capture Pellet,RotavirusA,0.16,R1,VDCP,0.16,Endogenous
+Vac. direct capture Pellet,Astrovirus,40.98,R2,VDCP,40.98,Endogenous
+Vac. direct capture Pellet,LCMV,5.164,R2,VDCP,5.164,Spike-in
+Vac. direct capture Pellet,MS2,55.56,R2,VDCP,55.56,Spike-in
+Vac. direct capture Pellet,PhiX174,10.29,R2,VDCP,10.29,Spike-in
+Vac. direct capture Pellet,Vaccinia,0,R2,VDCP,0,Spike-in
+Vac. direct capture Pellet,Influenza PR8,136.9,R2,VDCP,136.9,Spike-in
+Vac. direct capture Pellet,HPV-E1,87.87,R2,VDCP,87.87,Endogenous
+Vac. direct capture Pellet,Adenovirus,5.65,R2,VDCP,5.65,Endogenous
+Vac. direct capture Pellet,RotavirusA,0.59,R2,VDCP,0.59,Endogenous
+Vac. direct capture Pellet,Astrovirus,33.62,R3,VDCP,33.62,Endogenous
+Vac. direct capture Pellet,LCMV,5.035,R3,VDCP,5.035,Spike-in
+Vac. direct capture Pellet,MS2,57.11,R3,VDCP,57.11,Spike-in
+Vac. direct capture Pellet,PhiX174,10.42,R3,VDCP,10.42,Spike-in
+Vac. direct capture Pellet,Vaccinia,2.891,R3,VDCP,2.891,Spike-in
+Vac. direct capture Pellet,Influenza PR8,157,R3,VDCP,157,Spike-in
+Vac. direct capture Pellet,HPV-E1,90.02,R3,VDCP,90.02,Endogenous
+Vac. direct capture Pellet,Adenovirus,16.74,R3,VDCP,16.74,Endogenous
+Vac. direct capture Pellet,RotavirusA,0.535,R3,VDCP,0.535,Endogenous
+Vac. direct capture,Norovirus,928.7,R1,VDC,928.7,Endogenous
+Vac. direct capture,RSV,0.105,R1,VDC,0.105,Endogenous
+Vac. direct capture,Enterovirus,18.26,R1,VDC,18.26,Endogenous
+Vac. direct capture,Norovirus,1018.3,R2,VDC,1018.3,Endogenous
+Vac. direct capture,RSV,0.053,R2,VDC,0.053,Endogenous
+Vac. direct capture,Enterovirus,14.65,R2,VDC,14.65,Endogenous
+Vac. direct capture,Norovirus,977.2,R3,VDC,977.2,Endogenous
+Vac. direct capture,RSV,0.054,R3,VDC,0.054,Endogenous
+Vac. direct capture,Enterovirus,12.76,R3,VDC,12.76,Endogenous
+NanoTrap,Norovirus,172.2,R1,NT,688.8,Endogenous
+NanoTrap,RSV,0.107,R1,NT,0.428,Endogenous
+NanoTrap,Enterovirus,5.203,R1,NT,20.812,Endogenous
+NanoTrap,Norovirus,198.4,R2,NT,793.6,Endogenous
+NanoTrap,RSV,0,R2,NT,0,Endogenous
+NanoTrap,Enterovirus,3.806,R2,NT,15.224,Endogenous
+NanoTrap,Norovirus,175.8,R3,NT,703.2,Endogenous
+NanoTrap,RSV,0,R3,NT,0,Endogenous
+NanoTrap,Enterovirus,3.275,R3,NT,13.1,Endogenous
+Ultrafiltration,Norovirus,173.6,R1,UF,173.6,Endogenous
+Ultrafiltration,RSV,0,R1,UF,0,Endogenous
+Ultrafiltration,Enterovirus,7.001,R1,UF,7.001,Endogenous
+Ultrafiltration,Norovirus,149.4,R2,UF,149.4,Endogenous
+Ultrafiltration,RSV,0,R2,UF,0,Endogenous
+Ultrafiltration,Enterovirus,6.545,R2,UF,6.545,Endogenous
+Ultrafiltration,Norovirus,212.7,R3,UF,212.7,Endogenous
+Ultrafiltration,RSV,0,R3,UF,0,Endogenous
+Ultrafiltration,Enterovirus,7.244,R3,UF,7.244,Endogenous
+Membrane,Norovirus,97.53,R1,MEM,97.53,Endogenous
+Membrane,RSV,0.055,R1,MEM,0.055,Endogenous
+Membrane,Enterovirus,3.703,R1,MEM,3.703,Endogenous
+Membrane,Norovirus,95.5,R2,MEM,95.5,Endogenous
+Membrane,RSV,0,R2,MEM,0,Endogenous
+Membrane,Enterovirus,5.259,R2,MEM,5.259,Endogenous
+Membrane,Norovirus,108.6,R3,MEM,108.6,Endogenous
+Membrane,RSV,0,R3,MEM,0,Endogenous
+Membrane,Enterovirus,7.868,R3,MEM,7.868,Endogenous
+PEG,Norovirus,515.4,R1,PEG,515.4,Endogenous
+PEG,RSV,0.111,R1,PEG,0.111,Endogenous
+PEG,Enterovirus,14.77,R1,PEG,14.77,Endogenous
+PEG,Norovirus,640.3,R2,PEG,640.3,Endogenous
+PEG,RSV,0.111,R2,PEG,0.111,Endogenous
+PEG,Enterovirus,18.8,R2,PEG,18.8,Endogenous
+PEG,Norovirus,484.8,R3,PEG,484.8,Endogenous
+PEG,RSV,0,R3,PEG,0,Endogenous
+PEG,Enterovirus,13.74,R3,PEG,13.74,Endogenous
+Unconcentrated_Spike,Norovirus,19,R1,UNC_Sp,1520,Endogenous
+Unconcentrated_Spike,RSV,0,R1,UNC_Sp,0,Endogenous
+Unconcentrated_Spike,Enterovirus,0.585,R1,UNC_Sp,46.8,Endogenous
+Unconcentrated_Spike,Norovirus,18.5,R2,UNC_Sp,1480,Endogenous
+Unconcentrated_Spike,RSV,0,R2,UNC_Sp,0,Endogenous
+Unconcentrated_Spike,Enterovirus,0.893,R2,UNC_Sp,71.44,Endogenous
+Unconcentrated_Spike,Norovirus,23.28,R3,UNC_Sp,1862.4,Endogenous
+Unconcentrated_Spike,RSV,0,R3,UNC_Sp,0,Endogenous
+Unconcentrated_Spike,Enterovirus,1.013,R3,UNC_Sp,81.04,Endogenous
+Unconcentrated_Spike,LCMV,0.359771029,R1,UNC_Sp,28.78168232,Spike-in
+Unconcentrated_Spike,LCMV,0.526366955,R2,UNC_Sp,42.1093564,Spike-in
+Unconcentrated_Spike,LCMV,0.42522628,R3,UNC_Sp,34.0181024,Spike-in
+Vac. direct capture,SARS-CoV-2,245.55,R1,VDC,491.1,Endogenous
+Vac. direct capture,SARS-CoV-2,283.57,R2,VDC,567.14,Endogenous
+Vac. direct capture,SARS-CoV-2,252.48,R3,VDC,504.96,Endogenous
+Vac. direct capture Pellet,SARS-CoV-2,6.03,R1,VDCP,12.06,Endogenous
+Vac. direct capture Pellet,SARS-CoV-2,4.99,R2,VDCP,9.98,Endogenous
+Vac. direct capture Pellet,SARS-CoV-2,15.93,R3,VDCP,31.86,Endogenous
+NanoTrap,SARS-CoV-2,38.87,R1,NT,310.96,Endogenous
+NanoTrap,SARS-CoV-2,108.04,R2,NT,864.32,Endogenous
+NanoTrap,SARS-CoV-2,38.22,R3,NT,305.76,Endogenous
+Ultrafiltration,SARS-CoV-2,26.81,R1,UF,53.62,Endogenous
+Ultrafiltration,SARS-CoV-2,19.58,R2,UF,39.16,Endogenous
+Ultrafiltration,SARS-CoV-2,36.95,R3,UF,73.9,Endogenous
+Membrane,SARS-CoV-2,20.89,R1,MEM,41.78,Endogenous
+Membrane,SARS-CoV-2,17.72,R2,MEM,35.44,Endogenous
+Membrane,SARS-CoV-2,33.22,R3,MEM,66.44,Endogenous
+PEG,SARS-CoV-2,130.44,R1,PEG,260.88,Endogenous
+PEG,SARS-CoV-2,144.49,R2,PEG,288.98,Endogenous
+PEG,SARS-CoV-2,108.82,R3,PEG,217.64,Endogenous
+Unconcentrated_Spike,SARS-CoV-2,2.84,R1,UNC_Sp,454.4,Endogenous
+Unconcentrated_Spike,SARS-CoV-2,2.85,R2,UNC_Sp,456,Endogenous
+Unconcentrated_Spike,SARS-CoV-2,4.55,R3,UNC_Sp,728,Endogenous
+Unconcentrated,SARS-CoV-2,3.52,R1,UNC,563.2,Endogenous
+Unconcentrated,SARS-CoV-2,3.74,R2,UNC,598.4,Endogenous
+Unconcentrated,SARS-CoV-2,3.31,R3,UNC,529.6,Endogenous
+Direct_Extract_1-10_Dilution,SARS-CoV-2,0,R1,DE,0,Endogenous
+Direct_Dilute,SARS-CoV-2,0,R1,DE,0,Endogenous
+Direct_Extract_1-10_Dilution,SARS-CoV-2,0,R2,DE,0,Endogenous
+Direct_Dilute,SARS-CoV-2,0,R2,DE,0,Endogenous
+Direct_Extract_1-10_Dilution,SARS-CoV-2,0,R3,DE,0,Endogenous
+Direct_Dilute,SARS-CoV-2,0,R3,DE,0,Endogenous
+Direct_Extract_1-10_Dilution,16S,6976.685398,R1,DE,2790674.1595,Endogenous
+Direct_Dilute,16S,6976.685398,R1,DE,2790674.1595,Endogenous
+Direct_Extract_1-10_Dilution,16S,5934.978648,R2,DE,2373991.459,Endogenous
+Direct_Dilute,16S,5934.978648,R2,DE,2373991.459,Endogenous
+Direct_Extract_1-10_Dilution,16S,11353.248605,R3,DE,4541299.442,Endogenous
+Direct_Dilute,16S,11353.248605,R3,DE,4541299.442,Endogenous
+Membrane,16S,60083971.725,R1,MEM,300419858.65,Endogenous
+Membrane,16S,44338654.76,R2,MEM,221693273.8,Endogenous
+Membrane,16S,60120661.72,R3,MEM,300603308.6,Endogenous
+NanoTrap,16S,17083892.36,R1,NT,341677847.3,Endogenous
+NanoTrap,16S,11953575.745,R2,NT,239071514.95,Endogenous
+NanoTrap,16S,12749690.735,R3,NT,254993814.7,Endogenous
+PEG,16S,3358791.019,R1,PEG,16793955.095,Endogenous
+PEG,16S,3251693.545,R2,PEG,16258467.72,Endogenous
+PEG,16S,3023416.0035,R3,PEG,15117080.02,Endogenous
+Ultrafiltration,16S,11127942.045,R1,UF,55639710.23,Endogenous
+Ultrafiltration,16S,14429544.815,R2,UF,72147724.075,Endogenous
+Ultrafiltration,16S,7191428.942,R3,UF,35957144.71,Endogenous
+Unconcentrated,16S,902852.136,R1,UNC,361140854.4,Endogenous
+Unconcentrated,16S,1559948.623,R2,UNC,623979449.25,Endogenous
+Unconcentrated,16S,1612568.188,R3,UNC,645027275.3,Endogenous
+Unconcentrated_Spike,16S,3966296.1955,R1,UNC_Sp,1586518478.5,Endogenous
+Unconcentrated_Spike,16S,2822221.5865,R2,UNC_Sp,1128888634.5,Endogenous
+Unconcentrated_Spike,16S,6908225.5475,R3,UNC_Sp,2763290219,Endogenous
+Vac. direct capture,16S,3677983.428,R1,VDC,18389917.145,Endogenous
+Vac. direct capture,16S,3859403.35,R2,VDC,19297016.755,Endogenous
+Vac. direct capture,16S,4116389.1865,R3,VDC,20581945.935,Endogenous
+Vac. direct capture Pellet,16S,2553025.112,R1,VDCP,12765125.56,Endogenous
+Vac. direct capture Pellet,16S,2048922.608,R2,VDCP,10244613.04,Endogenous
+Vac. direct capture Pellet,16S,2955396.034,R3,VDCP,14776980.17,Endogenous
+NanoTrap,PMMoV,8781.96,R1,NT,70255.68,Endogenous
+NanoTrap,PMMoV,8494.07,R2,NT,67952.56,Endogenous
+NanoTrap,PMMoV,9540.92,R3,NT,76327.36,Endogenous
+Ultrafiltration,PMMoV,7047.73,R1,UF,14095.46,Endogenous
+Ultrafiltration,PMMoV,4855.01,R2,UF,9710.02,Endogenous
+Ultrafiltration,PMMoV,12668.2,R3,UF,25336.4,Endogenous
+Membrane,PMMoV,10322.14,R1,MEM,20644.28,Endogenous
+Membrane,PMMoV,8977.93,R2,MEM,17955.86,Endogenous
+Membrane,PMMoV,11063.92,R3,MEM,22127.84,Endogenous
+Unconcentrated_Spike,PMMoV,554.57,R1,UNC_Sp,88731.2,Endogenous
+Unconcentrated_Spike,PMMoV,640.01,R2,UNC_Sp,102401.6,Endogenous
+Unconcentrated_Spike,PMMoV,719.11,R3,UNC_Sp,115057.6,Endogenous
+Unconcentrated,PMMoV,735.62,R1,UNC,117699.2,Endogenous
+Unconcentrated,PMMoV,693.83,R2,UNC,111012.8,Endogenous
+Unconcentrated,PMMoV,570.2,R3,UNC,91232,Endogenous
+Vac. direct capture,PMMoV,63445.4,R1,VDC,126890.8,Endogenous
+Vac. direct capture,PMMoV,58831.5,R2,VDC,117663,Endogenous
+Vac. direct capture,PMMoV,43099.8,R3,VDC,86199.6,Endogenous
+PEG,PMMoV,35740.4,R1,PEG,71480.8,Endogenous
+PEG,PMMoV,39383.4,R2,PEG,78766.8,Endogenous
+PEG,PMMoV,27370.2,R3,PEG,54740.4,Endogenous
