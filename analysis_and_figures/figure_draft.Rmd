@@ -1,6 +1,6 @@
 ---
-title: "figure_draft_update"
-author: "Matthew Thornton, Gabriela Eder, Fabian Amman, Anastasiia Pantielieieva, Regina Sommer, Julia Vierheilig, Andreas Bergthaler"
+title: "Publication Figures"
+author: "Matthew Thornton, Gabriela Eder, Fabian Amman, Anastasiia Pantielieieva, Julia Vierheilig, Andreas Bergthaler"
 date: "`r Sys.Date()`"
 output:
   html_document: 
@@ -28,10 +28,8 @@ library("ggview")
 library("ggthemes")
 library("ggrepel")
 library("ggpubr")
-#library("ggmosaic")
 library("viridis")
 library('patchwork')
-#library("pracma")      # AUC calculation
 library("MASS")        # Negative binomial modelling
 library("marginaleffects")
 library("data.table")
@@ -72,17 +70,6 @@ target_pal <- c(
 ```
 
 ```{r define_functions}
-SignifCodes <- function(x) {
-  if(x < 0.001){
-    return("***")
-  } else if(x < 0.01){
-    return("**")
-  } else if(x < 0.05){
-    return("*")
-  } else{
-    return("n.s.")
-  }
-}
 read_kraken <- function(x) {
   kraken_dat <- read.delim(x, sep = "\t", header = F) %>%  
     select(
@@ -99,6 +86,7 @@ read_kraken <- function(x) {
     )
   return(kraken_dat)
 } 
+
 plot_pcoa <- function(matrix, title, df){
   mat <- matrix
   mat[is.na(mat)] <- 0
@@ -130,6 +118,7 @@ plot_pcoa <- function(matrix, title, df){
   
   return(p)
 }
+
 get_nt_div <- function(vcf_file) {
   input <- readLines(vcf_file)
   
@@ -315,8 +304,8 @@ Auxdata = Compiled characteristics (nucleotide, type of genome, particle size, g
 **Figure objective**: Introduce the first readout of the study. As PCR is a cheap and common readout for many WBE targets we investigated the suitability of dPCR as a proxy for viromic sequencing by measuring a range of viral targets with varying characteristics, and including 16S as a proxy for viral concentration specificity.
 
 ## Figure 1A: Recovery per target
-```{r Fig_1A_recovery}
-# Scatter plot with recoveries based on mean unconcentrated values
+```{r Fig_1A_recovery, fig.width=12, fig.height=5}
+# Calculate reference value for 'perfect' volumetric recovery
 dtn <- dpcr %>% 
   filter(Method == "UNC") %>%
   group_by(Target) %>%
@@ -426,21 +415,21 @@ f1b
 
 ## Publication: Figure 1
 
-```{r Pub_Figure_2, fig.height=9, fig.width=13}
+```{r Pub_Figure_1, fig.height=9, fig.width=17}
 figure1 <- f1a + f1b + plot_layout(widths = c(5,1), guides = "collect") + plot_annotation(tag_levels = "A") 
-figure1 + canvas(height = 4, width = 17)
+figure1 #+ canvas(height = 4, width = 17)
 
-ggsave(filename = "./publication_ready_figure/figure1.pdf", figure1, height = 4, width = 14)
-ggsave(filename = "./publication_ready_figure/figure1.png", figure1, height = 4, width = 14)
+#ggsave(filename = "./publication_ready_figure/figure1.pdf", figure1, height = 4, width = 14)
+#ggsave(filename = "./publication_ready_figure/figure1.png", figure1, height = 4, width = 14)
 ```
 
 # Figure 2: Evaluating sequencing performance per method
 
-**Figure objective**: Introduce the results of the sequencing and how each method performed by various metrics include % reads on target (3a), species richness (3c), reproducibility and depth of viral detection (3b), community similarity (3d), and fold enrichment compared to mean unconcentrated read count (3e).
+**Figure objective**: Introduce the results of the sequencing and how each method performed by various metrics include % reads on target, species richness, reproducibility and depth of viral detection , community similarity, and fold enrichment compared to mean unconcentrated read count.
 
 ## Figure 2A: Percent read composition (kraken2 data)
 
-```{r 3A kraken classification, fig.height=4, fig.width=10}
+```{r 2A kraken classification, fig.height=4, fig.width=10}
 # Investigating viral composition and enrichment effect of hybrid-capture
 domain_plot <- domain_dat %>% 
   mutate(Sample = word(Sample, 1, 1, sep = "_")) %>%
@@ -461,7 +450,7 @@ f2a <- ggplot(domain_plot, aes(x = Sample, y = Percent_fragments, fill = Tax_nam
     title = "Sample composition",
     x = "",
     y = "Fraction Reads Assigned",
-    fill = "Superkingdom",
+    fill = "B) Superkingdom",
   ) +
   guides(alpha = "none", fill = guide_legend(override.aes = list(alpha = 0.6)))
 
@@ -470,7 +459,7 @@ f2a
 
 ## Figure 2B: Heatmap at species level
 
-```{r Figure 3B Heatmap, fig.height=20, fig.width=12}
+```{r Figure 2B Heatmap, fig.height=20, fig.width=12}
 heat_dat <- wwdv_002 %>%
   group_by(Sample, Method, species) %>%
   summarise(
@@ -486,7 +475,7 @@ heat_dat$Method <- factor(heat_dat$Method, levels = c("UNC", "MEM", "UF", "NT", 
 f2b <- ggplot(heat_dat, aes(x = Sample, y = reorder(species, Salmon_read_number), fill = Salmon_read_number, group = Method)) +
   geom_tile(color = "white") +
   geom_vline(color = "white", xintercept = c(3.5, 6.5, 9.5, 12.5, 15.5), linewidth = 1) +
-  scale_fill_viridis(discrete = F, trans = "log10", name = "Virus abundance \nlog(Read counts)") +
+  scale_fill_viridis(discrete = F, trans = "log10", name = "A) Virus abundance \nlog(Read counts)") +
   facet_grid(~Method, scales = "free_x") +
   theme(
     axis.text.x = element_text(angle = 90, size = 8, hjust = 1, vjust = 0.5),
@@ -503,7 +492,7 @@ f2b
 
 ## Figure 2C: Species richness (calculated at species level)
 
-```{r Figure 3C SRR, fig.height=4, fig.width=6}
+```{r Figure 2C SRR, fig.height=4, fig.width=6}
 # trueRichness calculated by Chao's lower bond estimator
 panMatrix <- reshape2::dcast(data = heat_dat, formula = Sample~species, fun.aggregate=length, value.var = "Salmon_read_number")
 trueRichness <- micropan::chao(pan.matrix = panMatrix) 
@@ -526,7 +515,8 @@ f2c <- ggplot(plot_richnessRatio, aes(x = Method, y = srr, fill = Method)) +
   labs(
     title = "Species richness",
     x = "",
-    y = "Species richness ratio"
+    y = "Species richness ratio",
+    fill = "C,D,E) Method"
   ) +
   scale_y_continuous(
     name = "Richness ratio (SRR)", 
@@ -540,7 +530,7 @@ f2c
 
 ## Figure 2D: PCoA plot of beta diversity (aitchison distance)
 
-```{r Figure 3D PCoA}
+```{r Figure 2D PCoA}
 mat <- wwdv_002 %>%
   group_by(Sample, species) %>%
   summarise(Reads_mapped = sum(Salmon_read_number)) %>%
@@ -555,7 +545,7 @@ f2d
 
 ## Figure 2E: Fold enrichment per method (comparison to mean unconcentrated values)
 
-```{r 3E.2 fold enrichment}
+```{r 2E fold enrichment}
 vir <- wwdv_002 %>%
   group_by(Method, Replicate, strain, species, genus, family) %>%
   summarize(Salmon_read_number = sum(Salmon_read_number)) %>%
@@ -603,6 +593,13 @@ dunn_res <- data.frame(cbind(dt[[5]], dt[[4]])) %>%
     )
 
 dunn_res <- dunn_res %>% filter(group1 == "PEG" | group2 == "PEG") # to reduce clutter of significance bars in plot, select only PEG and VDC comparisons
+dunn_res <- dunn_res %>% 
+  mutate(
+    group1 = ifelse(group1 == "PEG", group2, group1),
+    group2 = ifelse(group2 != "PEG", "PEG", group2),
+  ) 
+
+dunn_res$group1 <- factor(dunn_res$group1, levels = c("MEM", "UF", "NT", "VDC"))
 kwd$Method <- factor(kwd$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
 
 f2e <- ggplot(kwd) +
@@ -671,18 +668,18 @@ AAABBBB
 figure3 <- figure3 + plot_layout(design = layout) + plot_annotation(tag_levels = "A")
 figure3
 
-ggsave(filename = "./publication_ready_figure/figure3.pdf", figure3, height = 10, width = 12)
-ggsave(filename = "./publication_ready_figure/figure3.png", figure3, height = 10, width = 12)
+#ggsave(filename = "./publication_ready_figure/figure3.pdf", figure3, height = 10, width = 12)
+#ggsave(filename = "./publication_ready_figure/figure3.png", figure3, height = 10, width = 12)
 ```
 
 # Figure 3: Modelling viral taxonomy and enrichment efficiency
 
-**Figure objective**: Investigate methods consistency to enrich viruses across varied characteristics (ie. taxonomic grouping or morphological features) by modelling the enrichment rate as a response variable to an interaction of the method and characteristics. Computed mariginal effects at the level of the method/charactertics.
+**Figure objective**: Investigate methods consistency to enrich viruses across varied characteristics (ie. taxonomic grouping or morphological features) by modelling the enrichment rate as a response variable to an interaction of the method and characteristics. Compute mariginal effects at the level of the method/charactertics.
 
 ## Figure 3: Modelling methods with taxonomy interaction
 - Output: controlled FWER with holm method on all p-values
 
-```{r F3_Prep_model_data, warning=FALSE}
+```{r Fig 3 Prep model data, warning=FALSE}
 # Prep data
 vir <- wwdv_002 %>%
   group_by(Method, Replicate, strain, species, genus, family) %>%
@@ -808,7 +805,7 @@ plot_f <- fam_comparison %>%
   mutate(across(c(estimate, conf.low, conf.high), ~ 10^.))
 ```
 
-```{r Figure_3_Taxonomy, height=5, width=15}
+```{r Fig 3 Taxonomy, height=5, width=15}
 # Sign colors
 sig_colors <- c(
   "ns" = "grey",
@@ -829,8 +826,8 @@ sig <- sig %>% mutate(
 ) 
 
 # Set plot order
-plot_f$contrast <- factor(plot_f$contrast, levels = c("PEG", "VDC", "UF", "NT", "MEM"))
-jitter_dat$contrast <- factor(jitter_dat$contrast, levels = c("PEG", "VDC", "UF", "NT", "MEM"))
+plot_f$contrast <- factor(plot_f$contrast, levels = c("MEM", "UF", "NT", "VDC", "PEG"))
+jitter_dat$contrast <- factor(jitter_dat$contrast, levels = c("MEM", "UF", "NT", "VDC", "PEG"))
 
 # Plot WWDv_002 data by family 
 f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
@@ -898,27 +895,19 @@ f3 + ggview::canvas(height = 4, width = 12, units = "in")
 ```
 
 ## Publication: Figure 3  
-```{r figure_3_pub}
+```{r Pub Figure 3, fig.height=4, fig.width=12}
 figure3 <- f3
  
-ggsave(plot = figure3,
-       filename = "./publication_ready_figure/figure3.png",
-       height = 4,
-       width = 12)
+#ggsave(plot = figure3, filename = "./publication_ready_figure/figure3.png", height = 4, width = 12)
 ```
 
 
 # Figure 4: Captured nucleotide diversity
 ## Figure 4: Diversity measure per method
 
-**Hypothesis**: if a method poorly concentrates a virus, then limited virions will be represented in the final sequencing pool. This could be due to limited concentration (ie. poor sampling effort of the true population diversity during concentration), inhibition during RT restricting the fragments that get reverse transcribed, or simply by loss of rare sequences during library prep / handling. This could mean that even though a strain or species is considered detected by a method, the underlying diversity of that taxa will be limited as the population sampled will be very small in relation to the true population in the WW. Thus, better concentration methods should show a higher diversity in the reads within a taxonomic group. To compare, the following was done:\
-* A total observed diversity was calculated for all samples from the same time-point and location by merging the mapped bam files and calling variants on the total mapping effort.  
-* Individual sample diversities were calculated in the same way.  
-* Sample diversity per site was compared to the total diversity as a ratio $sample_{div}/total_{div}$  
-* Average diversity per site was aggregated at the strain level over all sites, accessions, and replicates  
-* Significance was assessed for each pair-wise method comparison with dunn's post-hoc of kruskal wallace rank test  
+**Hypothesis**: if a method poorly concentrates a virus, then limited virions will be represented in the final sequencing pool. This could be due to limited concentration (ie. poor sampling effort of the true population diversity during concentration), inhibition during RT restricting the fragments that get reverse transcribed, or simply by loss of rare sequences during library prep / handling. This could mean that even though a strain or species is considered detected by a method, the underlying diversity of that taxa will be limited as the population sampled will be very small in relation to the true population in the WW. Thus, better concentration methods should show a higher diversity in the reads within a taxonomic group.
 
-```{r Fig_4_data_prep}
+```{r Fig 4 data prep}
 # Rank test on diversity ratios
 kwd_002 <- tax_di %>% filter(WWTP == "WWTP 1")
 
@@ -975,13 +964,13 @@ res <- out_df %>%
     pvalue < 0.001 ~ "***",
     pvalue > 0.05 ~ "ns" ))
 
-res$comparison <- factor(res$comparison, levels = c("PEG-UNC", "PEG-MEM", "PEG-NT", "PEG-UF", "PEG-VDC"))
-out_df$comparison <- factor(out_df$comparison , levels = c("PEG-UNC", "PEG-MEM", "PEG-NT", "PEG-UF", "PEG-VDC"))
-out_df$Method <- factor(out_df$Method , levels = c("UNC", "MEM", "NT", "UF", "VDC", "PEG"))
+res$comparison <- factor(res$comparison, levels = c("PEG-UNC", "PEG-MEM", "PEG-UF", "PEG-NT", "PEG-VDC"))
+out_df$comparison <- factor(out_df$comparison , levels = c("PEG-UNC", "PEG-MEM", "PEG-UF", "PEG-NT", "PEG-VDC"))
+out_df$Method <- factor(out_df$Method , levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
 
 ```
 
-```{r Fig_4_plot, fig.height=4, fig.width=14, warning=FALSE}
+```{r Fig 4 plot, fig.height=4, fig.width=14, warning=FALSE}
 percentiles <- out_df %>% 
   group_by(Method) %>% 
   mutate(percentile = percent_rank(pi)*100)
@@ -1060,13 +1049,9 @@ f4 + ggview::canvas(height = 5, width = 12)
 ```
 
 ## Publication: Figure 4  
-```{r Pub_Fig_4}
+```{r Pub Figure 4, fig.height=4, fig.width=12}
 figure4 <- f4
-
-ggsave(plot = figure4,
-       filename = "./publication_ready_figure/figure4.png",
-       height = 4,
-       width = 12)
+#ggsave(plot = figure4, filename = "./publication_ready_figure/figure4.png", height = 4, width = 12)
 ```
 
 
@@ -1075,7 +1060,7 @@ ggsave(plot = figure4,
 
 ## Figure 5A: Model VDC vs. PEG bias over WWTPs and taxonomy
 
-```{r Prep_5A_model_data, warning=FALSE}
+```{r Prep 5A model data, warning=FALSE}
 # WWDv_003 - negative binomial modelling of counts -> comparison of ratios
 deep_exp <- seq_dat %>% 
   filter(Method %in% c("PEG", "VDC")) %>% 
@@ -1165,7 +1150,7 @@ plot_res <- res_with_wwtp %>%
 
 ```
 
-```{r Fig_5A_taxonomic_model, height=5, width=6}
+```{r Fig 5A taxonomic_model, height=5, width=6}
 bias_colors <- c(
   "ns" = "grey",
   "PEGbias***" = "#F45C10",
@@ -1247,9 +1232,9 @@ f5a <- ggplot(plot_res, aes(x = reorder(family, estimate), y = estimate, fill = 
 f5a #+ canvas(height = 6, width = 7, units = "in")
 ```
 
-## Figure 5B Option: Reproducibility across WWTP
+## Figure 5B: Reproducibility across WWTP
 
-```{r Figure_5B_Option, height=8, width=10, message=F, warning=F}
+```{r Figure 5B, height=8, width=10, message=F, warning=F}
 peg_bias <- plot_res %>% filter(grepl("PEGbias", bias)) %>% pull(family) # relies on object from modelling output
 
 # Define significant families for highlights in plot
@@ -1369,7 +1354,7 @@ f5b + ggview::canvas(height = 8, width = 10)
 
 ## Publication: Figure 5
 
-```{r Pub_Figure_5, warning=F, fig.width=15, fig.height=6}
+```{r Pub Figure 5, warning=F, fig.width=15, fig.height=6}
 layout <- "
 AABBEEEE
 CCDDEEEE
@@ -1391,8 +1376,8 @@ ggsave(plot = figure5, filename = "./publication_ready_figure/figure5.png", heig
 ## Supplemental Figures
 ### S1: Experimental overview
 
-```{r Fig1a, fig.height=6, fig.width=6}
-knitr::include_graphics("./publication_ready_figure/figure1_v2.png")
+```{r Suppl_Fig_1, fig.height=6, fig.width=6}
+knitr::include_graphics("./publication_ready_figure/supplemental_figures/figure1_v3.png")
 ```
 
 
@@ -1400,7 +1385,7 @@ knitr::include_graphics("./publication_ready_figure/figure1_v2.png")
 
 -   Provide the raw overview of method performance by target
 
-```{r Suppl_dPCR_quants, fig.height=10, fig.width=14}
+```{r Suppl_Fig_2, fig.height=10, fig.width=14}
 # plot total sum of all mean virus quants per method
 f2s <- ggplot(mean_quants, aes(x = Method, y = mean_quant, fill = Method)) +
   theme_bw() +
@@ -1434,8 +1419,128 @@ ggsave(plot = f2s, filename = "./publication_ready_figure/supplement_figures/dpc
 ```
 
 
-### S3: Read fate plot
-```{r Suppl_reads_downsampled}
+### S3: Recovery scatterplot
+-   Plotting the "recovery" of each viral target against the quantifications of the unconcentrated sample adjusted for volume (80x factor).
+
+```{r Suppl_Fig_3, fig.height=4, fig.width=12}
+# Recovery scatterplot
+rec_trans <- rec %>% mutate(expected_conc = log10(expected_conc), Concentration = log10(Concentration))
+res_m <- data.table(Method = character(), slope = numeric(), std_error = numeric())
+for (s in unique(rec$Method)){
+  dtm <- rec_trans %>% filter(Method == s) %>% mutate(Concentration = Concentration, expected_conc = expected_conc)
+  formula.minimal <- as.formula(paste("Concentration", "~", "expected_conc"))
+  model.minimal <- lm(formula.minimal, data = dtm)
+  res_m <- rbind(res_m, data.table(
+    Method = s, 
+    slope = summary(model.minimal)$coef[2],  
+    std_error = summary(model.minimal)$coef[4]
+      )
+    )
+}
+
+rec_trans$Method <- factor(rec_trans$Method, levels = c("MEM", "UF", "NT", "VDC", "PEG"))
+res_m$Method <- factor(res_m$Method, levels = c("MEM", "UF", "NT", "VDC", "PEG"))
+
+s3a <- ggplot(rec_trans, aes(x = expected_conc, y = Concentration)) + 
+  geom_point(
+    aes(fill = Target, color = Target), 
+    size = 2.5,
+    alpha = 0.75,
+    shape = 21
+  ) + 
+  geom_smooth(
+    fullrange = FALSE, 
+    se = TRUE, 
+    method = "lm", 
+    formula = y~x
+  ) + 
+  geom_abline(
+    intercept = 0, 
+    slope = 1, 
+    linetype = "dashed",
+    alpha = 0.5
+  ) + 
+  geom_text_repel(
+    data = rec_trans %>% 
+      filter(Replicate == "R1") %>% 
+      mutate(Target = gsub("Influenza", "Infl.", Target)) %>% 
+      mutate(Target = gsub("SARS-CoV-2", "SC2", Target))  %>% 
+      mutate(Target = gsub("virus", "v.", Target)) %>% 
+      select(Method, Target, Concentration, expected_conc) %>% 
+      distinct(), 
+    aes(label = Target), 
+    size = 2.3, 
+    alpha = .5
+  ) +
+  #theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) + 
+  geom_text(
+    data = res_m,
+    aes(label = paste0("Slope: ", round(slope, digits = 2), "\nStd.err: ", round(std_error, digits = 3))),
+    x = 0.01,
+    y = 5.5,
+    alpha = 1,
+    size = 2.75,
+    hjust = 0
+  ) +
+  scale_fill_manual(values = target_pal) +
+  scale_color_manual(values = target_pal) +
+  facet_wrap(~Method, ncol = 5, nrow = 1) + 
+  labs(
+    title = "Recovery from expected quantification",
+    x = "Log10 Expected quantification [cp/uL]",
+    y = "Log10 Observed quantification [cp/uL]",
+    fill = "Target"
+  ) +
+  scale_x_continuous(limits = c(0,6), breaks = c(0,1,2,3,4,5,6)) +
+  scale_y_continuous(limits = c(0,6), breaks = c(0,1,2,3,4,5,6)) +
+  guides(color = "none", fill = "none")
+
+
+# Coef of variation
+mean_quants <- dpcr %>%
+  filter(!Method %in% c("DE", NA)) %>%
+  group_by(Target, Method) %>%
+  summarise(
+    mean_quant = mean(Concentration),
+    mean_quant_adj = mean(Concentration_adj),
+    sd_quant = sd(Concentration),
+    sd_quant_adj = sd(Concentration_adj),
+    cv = sd_quant_adj/mean_quant_adj
+    ) %>%
+  mutate(Viral_type = case_when(
+      grepl("Vaccinia|Influenza|MS2|PhiX|LCMV", Target) ~ "Spike-in",
+      TRUE ~ "Endogenous"
+    ))
+
+s3b <- ggplot(mean_quants %>% filter(Target != "16S"), aes(x = Method, y = cv)) +
+  geom_boxplot(
+    fill = "grey",
+    alpha = 0.5, 
+    outliers = F, 
+    width = 0.5
+    ) +
+  geom_jitter(
+    alpha = 1, 
+    size = 2.2,
+    width = 0.01,
+    shape = 21,
+    aes(fill = Target),
+    color = "black"
+    ) +
+  scale_fill_manual(values = target_pal) +
+  scale_color_manual(values = target_pal) +
+  labs(
+    title = "Coefficient of Variation",
+    y = "Coefficient of Variation",
+    x = "Method"
+  ) +
+  guides(color = "none", fill = guide_legend(override.aes = list(size = 5)))
+
+(s3a + s3b) + plot_layout(widths = c(3,1)) + plot_annotation(tag_levels = "A") #+ canvas(height=4, width = 15)
+```
+
+### S4: Read fate plot
+```{r Suppl_Fig_4, fig.height=4, fig.width=7}
 readcountdata <- fread("analysis_and_figures/data_files/mappings_stats_FA.csv")
 readcountdata <- readcountdata %>%
   mutate(Method = gsub("\\d", "", sample)) %>%
@@ -1472,15 +1577,15 @@ readcountplot <- readcountdataDif %>%
   NULL
 
 fs <- readcountplot
-fs + canvas(height = 4, width = 7)
+fs #+ canvas(height = 4, width = 7)
 
-ggsave(plot = fs, filename = "./publication_ready_figure/supplement_figures/read_fate_plot.png", height = 4, width = 7)
+#ggsave(plot = fs, filename = "./publication_ready_figure/supplement_figures/read_fate_plot.png", height = 4, width = 7)
 ```
 
 
-### S4: Compare predicitive power of dPCR to seq data
+### S5: Compare predicitive power of dPCR to seq data
 
-```{r Suppl_dPCR_seq}
+```{r Suppl_Fig_5, fig.height=5, fig.width=12}
 comp <- seq_dat %>% 
   filter(
     Experiment == "WWDv_002",
@@ -1536,31 +1641,28 @@ sp1 <- ggplot(plot_comp, aes(x = relative_quant, y = relative_abund_seq)) +
     y = "Sequencing Abundance"
   )
 
-sp1 + (sp1 + facet_wrap(~Method)) + plot_layout(guides = "collect", axis_titles = "collect", widths = c(2,3)) + canvas(height = 5, width = 12)
+sp1 + (sp1 + facet_wrap(~Method)) + plot_layout(guides = "collect", axis_titles = "collect", widths = c(2,3)) #+ canvas(height = 5, width = 12)
 
-ggsave(plot = last_plot(), filename = "./publication_ready_figure/supplement_figures/dpcr_seq_concurrence.png", height = 5, width = 12)
+#ggsave(plot = last_plot(), filename = "./publication_ready_figure/supplement_figures/dpcr_seq_concurrence.png", height = 5, width = 12)
 #cor(plot_comp$relative_abund_seq, plot_comp$relative_quant, method = "spearman")
 
 ```
 
 
+### S6: Viral charactersitcs model output
 
-### S5: Viral charactersitcs model output
-
-```{r Suppl_model_characteristics}
-
-```
-
-
-
-
-### S6: Genus level distribution of bias
-```{r suppl fig S6}
+```{r Suppl_Fig_6}
 
 ```
 
-### S7: Number of missing taxa relative to each method
-```{r Suppl fig num missing}
+
+### S7: Genus level distribution of bias
+```{r Suppl_Fig_7}
+
+```
+
+### S8: Number of missing taxa relative to each method
+```{r Suppl_Fig_8, fig.height=4, fig.width=14}
 plot_missing_taxa <- function(df, ref_level) {
   ref_level <- as.character(ref_level)
   
@@ -1634,13 +1736,9 @@ n <- plot_missing_taxa(seq_dat, "NT") + guides(color = "none")
 u <- plot_missing_taxa(seq_dat, "UF") + guides(color = "none")
 un <- plot_missing_taxa(seq_dat, "UNC") 
 
-s7 <- (p | v | n | u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
+s8 <- (p | v | n | u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
 
-ggsave(s7, filename = "analysis_and_figures/publication_ready_figure/supplement_figures/n_missing_taxa.png",
-       height = 4,
-       width = 14,
-       units = "in"
-       )
+#ggsave(s8, filename = "analysis_and_figures/publication_ready_figure/supplement_figures/n_missing_taxa.png", height = 4, width = 14, units = "in")
 ```
 
 
@@ -1652,14 +1750,10 @@ properties <- rio::import("analysis_and_figures/data_files/WWDv_001e_viral_prope
 kable(properties)
 ```
 
-### Table S2: dPCR information
-```{r table S2 dPCR info}
-
-```
 
 # Unused Plots
 
-## Figure 3 modelling data: Facet by method
+## Modelling data: Facet by method
 
 ```{r Model with method facet, height=5, width=15}
 # Plot WWDv_002 by method 
@@ -1810,52 +1904,4 @@ f4b <- size / env / nuc + plot_layout(guides = "collect")
 f4b
 ```
 
-
-## Figure 5C: Diveristy comparisons across all WWTPs
-```{r Figure_5C_diversity}
-dp <- tax_di %>% filter(Method %in% c("PEG", "VDC"))
-kw_out <- kruskal.test(x = dp$Method, g = dp$pi)
-
-res <- data.frame(pval = kw_out$p.value, group1 = "PEG", group2 = "VDC") %>%
-  mutate(
-    sig = case_when(
-      pval <= 0.05 & pval >= 0.01 ~ "*",
-      pval < 0.01 & pval >= 0.001 ~ "**",
-      pval < 0.001 ~ "***",
-      pval > 0.05 ~ "ns"
-    )
-  )
-
-f5c <- ggplot(dp, aes(x = Method, y = pi)) + 
-  see::geom_violindot(
-    aes(fill = Method, dots_color = Method),
-    alpha = 0.7, 
-    width = 0.8, 
-    dots_size = 01,
-    binwidth = 0.03
-    ) +
-  geom_boxplot(outliers = F, alpha = 1, width = 0.1, aes(fill = Method)) +
-  stat_pvalue_manual(
-    data = res,
-    label = "sig",
-    xmin = "group1",
-    xmax = "group2",
-    y.position = 0.00001,
-    step.increase = 0,
-    tip.length = 0.01,
-    size = 3,
-    hide.ns = T
-  ) +
-  scale_fill_manual(values = pal) +
-  scale_color_manual(values = pal) +
-  scale_y_continuous(trans = "log10") +
-  labs(
-    title = "Comparing diversity",
-    x = "",
-    y = "Average Diversity"
-  ) +
-  guides(fill = "none") 
-
-f5c
-```
 
