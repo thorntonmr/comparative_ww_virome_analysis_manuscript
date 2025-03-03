@@ -2,6 +2,7 @@
 All code used in the analysis and figures for the manuscript "Comparative wastewater virome analysis with different enrichment methods"
 
 # Recreation of results
+## Running the primary mapping workflow
 1. Clone repo and download raw sequence files from European Nucleotide Archive.
 ```
 # Clone repo
@@ -10,17 +11,14 @@ git clone https://github.com/thorntonmr/comparative_ww_virome_analysis_manuscrip
 # Get sequences
 ```
 
-2. Run sequence processing pipeline to get mapping results
-- For this analysis we map to a reference set that can be downloaded from ``
-
-2.1 Create environment
+2. Create environment
 ```
 # Create conda env (or mamba) from file
 conda create -f environment.yml
 conda activate metamap
 ```
 
-2.2 Get requisite file
+3. Get requisite file
 - For the publication the contaminant set was created using the following
     - Human reference assembly: `GCF_000001405.26`
     - UniVec database: `https://ftp.ncbi.nlm.nih.gov/pub/UniVec/`
@@ -30,7 +28,7 @@ conda activate metamap
     - For more information on mapping database see the publication by [Tisza et al., 2023](https://www.nature.com/articles/s41467-023-42064-1)
     - The resulting directory will contain the `mapping_reference` fasta, `mapping_index`, and `tax_file` needed subsequently
 
-2.3 Setup config block
+4. Setup config block
 ```md
 # open the main.sh script in a text editor
 
@@ -42,6 +40,14 @@ mapping_reference="path/to/virus_pathogen_database.fna"     # path to reference 
 mapping_index="path/to/virus_pathogen_database.mmi"         # path to index for mapping
 tax_file="path/to/virus_pathogen_database.all_metadata.tsv" # file containing taxonomy info
 results_dir="metamap"                                       # user-defined output directory for mapping results
-strictness="--sensitive"                                    # options are --sensitive | --specific (in development)
+strictness="--sensitive"                                    # do not change
 experiment_id=""                                            # will be used to name interactive output table
 ```
+
+5. Run script 
+`bash main.sh` - creates a directory with all output files. 
+- Subsequent analyses for the NGS data will work with the `$results_dir/final_stats/metamap_final_stats.tsv` file
+
+
+## Recreating the figures
+- All files and scripts needed to recreate the figures are contained in `analysis_and_figures` directory. Knitting the Rmarkdown `figure_draft.Rmd` will reproduce figures used in the publication.
