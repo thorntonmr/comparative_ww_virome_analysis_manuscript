@@ -8,7 +8,8 @@ All code used in the analysis and figures for the manuscript "Comparative wastew
 # Clone repo
 git clone https://github.com/thorntonmr/comparative_ww_virome_analysis_manuscript
 
-# Get sequences
+# Get raw sequences
+https://www.ebi.ac.uk/ena/browser/view/PRJEB86516
 ```
 
 2. Create environment
@@ -18,10 +19,12 @@ conda create -f environment.yml
 conda activate metamap
 ```
 
-3. Get requisite file
+3. Get requisite files
 - For the publication the contaminant set was created using the following
     - Human reference assembly: `GCF_000001405.26`
     - UniVec database: `https://ftp.ncbi.nlm.nih.gov/pub/UniVec/`
+    - Concatenate the fastas 
+    - Build the index with `bowtie2-build <contam_reference> <index_prefix>`
 
 - Download mapping database: 
 `wget https://zenodo.org/records/7876309/files/DB_v2.0.2.tar.gz`
@@ -30,11 +33,11 @@ conda activate metamap
 
 4. Setup config block
 ```md
-# open the main.sh script in a text editor
+# open the main.sh script in a text editor (scripts/main.sh)
 
 # Set Variables
-starting_format="bam"                                       # input file format (must be either .bam or _R*.fastq.gz)
-starting_dir="path/to/starting/dir"                         # directory path for raw input files (bam or fastq)
+starting_format="bam"                                       # input file format (muts be bam or fastq)
+starting_dir="path/to/starting/dir"                         # directory path for raw input files
 contaminant_dir="path/to/bt2_ref"                           # path to bowtie2 index for contaminant reference
 mapping_reference="path/to/virus_pathogen_database.fna"     # path to reference sequence(s)
 mapping_index="path/to/virus_pathogen_database.mmi"         # path to index for mapping
