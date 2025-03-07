@@ -4,6 +4,7 @@ library("performance")
 library("viridis")
 library("lmtest")
 library("ggeffects")
+library("patchwork")
 library("marginaleffects")
 
 conflicted::conflicts_prefer(dplyr::select)
@@ -38,13 +39,7 @@ ref <- vir %>%
 # Divide each sample replicate by the mean of the reference
 vir_joined <- vir %>% 
   dplyr::left_join(ref %>% ungroup() %>% select(-Method)) %>% 
-  select(-mean_reads) %>%
-  mutate(
-    #ref_reads = ifelse(is.na(ref_reads), 0, ref_reads),
-    #ref_reads = ref_reads + 1, #add pseudocount of one to all speices
-    #Salmon_read_number = Salmon_read_number + 1, #add pseudocount of 1 to all species
-    fold_enrichment_reads = Salmon_read_number / ref_reads
-  )
+  select(-mean_reads)
 
 try <- vir_joined %>% filter(!is.na(fold_enrichment_reads)) 
 
@@ -52,6 +47,25 @@ try <- vir_joined %>% filter(!is.na(fold_enrichment_reads))
 try$Method <- factor(try$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
 try <- try %>% left_join(auxdata)
 
+# Model
+lm2 <- lm(log10(Salmon_read_number / ref_reads) ~ Method + envelope + sizeclass + Nuc + Method:envelope + Method:sizeclass + Method:Nuc, data = try)
+summary(lm2)
+performance::check_model(lm2)
+
+# Plots for enrichment predictions morpho model
+s1 <- plot_predictions(lm2, by = c("Method", "sizeclass")) + theme_bw() +  labs(title = "Estimates [log10]") + 
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.4)
+
+s2 <- plot_predictions(lm2, by = c("Method", "envelope")) + theme_bw() +labs(title = "Estimates [log10]") + 
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.4)
+
+s3 <- plot_predictions(lm2, by = c("sizeclass", "Method")) + theme_bw() + labs(title = "Estimates [log10]") + 
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.4)
+
+s4 <- plot_predictions(lm2, by = c("envelope", "Method")) + theme_bw() +labs(title = "Estimates [log10]") + 
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.4)
+
+(s1+s2) / (s3+s4) + plot_layout(guides = "collect")
 
 # 1. Size comparisons ----
 size_comparison <- comparisons(
