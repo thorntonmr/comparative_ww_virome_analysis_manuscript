@@ -29,8 +29,9 @@ library("ggthemes")
 library("ggrepel")
 library("ggpubr")
 library("viridis")
-library('patchwork')
-library("MASS")        # Negative binomial modelling
+library("patchwork")
+library("MASS")              # Negative binomial modelling
+library("performance")
 library("marginaleffects")
 library("data.table")
 library("vegan")
@@ -215,6 +216,20 @@ get_nt_div <- function(vcf_file) {
 
 -   data was cleaned and formatted prior \[see `./analysis/data_files/file_processing_script.R`\]
 
+-   Kraken data used for Fig 2b overview of sample composition. Otherwise all analysis is based on `seq_data`
+
+Auxdata = Compiled characteristics (nucleotide, type of genome, particle size, genome size, envelope) using viralzone for each genus observed in the samples. In the rare case where genus level info was not available, family level info was supplied at the genus scale. Unclassified genus were also filled in with family level info. Size class is defined like via the following:
+
+-   Small \<= 75nm
+
+-   75nm \< Mid\< 150nm
+
+-   150nm \<= Large
+
+-   for none spherical shapes use smallest dimension and largest dimension
+
+-   if size range is provided, the rounded mean of the upper and lower limits were used.
+
 ```{r read_data}
 data_dir <- "./data_files"
 
@@ -284,19 +299,6 @@ tax_di <- pi_num %>%
 
 ```
 
--   Kraken data used for Fig 3b overview of sample composition. Otherwise all analysis is based on `seq_data`
-
-Auxdata = Compiled characteristics (nucleotide, type of genome, particle size, genome size, envelope) using viralzone for each genus observed in the samples. In the rare case where genus level info was not available, family level info was supplied at the genus scale. Unclassified genus were also filled in with family level info. Size class is defined like via the following:
-
--   Small \<= 75nm
-
--   75nm \< Mid\< 150nm
-
--   150nm \<= Large
-
--   for none spherical shapes use smallest dimension and largest dimension
-
--   if size range is provided, the rounded mean of the upper and lower limits were used.
 
 
 # Figure 1: Evaluating dPCR performance per method
@@ -1377,7 +1379,7 @@ ggsave(plot = figure5, filename = "./publication_ready_figure/figure5.png", heig
 ### S1: Experimental overview
 
 ```{r Suppl_Fig_1, fig.height=6, fig.width=6}
-knitr::include_graphics("./publication_ready_figure/supplemental_figures/figure1_v3.png")
+knitr::include_graphics("./publication_ready_figure/supplemental_figures/supp_fig1.png")
 ```
 
 
@@ -1385,7 +1387,7 @@ knitr::include_graphics("./publication_ready_figure/supplemental_figures/figure1
 
 -   Provide the raw overview of method performance by target
 
-```{r Suppl_Fig_2, fig.height=10, fig.width=14}
+```{r Suppl_Fig_2, fig.height=6, fig.width=12, eval=F}
 # plot total sum of all mean virus quants per method
 f2s <- ggplot(mean_quants, aes(x = Method, y = mean_quant, fill = Method)) +
   theme_bw() +
@@ -1412,9 +1414,9 @@ f2s <- ggplot(mean_quants, aes(x = Method, y = mean_quant, fill = Method)) +
     y = "Concentration [cp/uL]"
   ) 
 
-f2s + canvas(height = 6, width = 12)
+f2s# + canvas(height = 6, width = 12)
 
-ggsave(plot = f2s, filename = "./publication_ready_figure/supplement_figures/dpcr_raw_quants.png", height = 6, width = 12)
+#ggsave(plot = f2s, filename = "./publication_ready_figure/supplement_figures/dpcr_raw_quants.png", height = 6, width = 12)
 
 ```
 
@@ -1466,7 +1468,7 @@ s3a <- ggplot(rec_trans, aes(x = expected_conc, y = Concentration)) +
       mutate(Target = gsub("Influenza", "Infl.", Target)) %>% 
       mutate(Target = gsub("SARS-CoV-2", "SC2", Target))  %>% 
       mutate(Target = gsub("virus", "v.", Target)) %>% 
-      select(Method, Target, Concentration, expected_conc) %>% 
+      dplyr::select(Method, Target, Concentration, expected_conc) %>% 
       distinct(), 
     aes(label = Target), 
     size = 2.3, 
@@ -1541,7 +1543,7 @@ s3b <- ggplot(mean_quants %>% filter(Target != "16S"), aes(x = Method, y = cv)) 
 
 ### S4: Read fate plot
 ```{r Suppl_Fig_4, fig.height=4, fig.width=7}
-readcountdata <- fread("analysis_and_figures/data_files/mappings_stats_FA.csv")
+readcountdata <- fread("./data_files/mappings_stats_FA.csv")
 readcountdata <- readcountdata %>%
   mutate(Method = gsub("\\d", "", sample)) %>%
   mutate(Replicate = paste0("R", gsub("\\D+", "", sample)))
@@ -1614,7 +1616,7 @@ plot_comp <- dpcr2 %>%
   rename(species = Target) %>%
   group_by(Method, Replicate) %>%
   filter(!species %in% c("PhiX174", "MS2")) %>%
-  left_join(comp %>% select(Method, Replicate, species, relative_abund_seq)) %>%
+  left_join(comp %>% dplyr::select(Method, Replicate, species, relative_abund_seq)) %>%
   filter(!is.na(relative_abund_seq)) %>%
   mutate(
     total_quant = sum(Concentration),
@@ -1681,9 +1683,9 @@ plot_missing_taxa <- function(df, ref_level) {
   
   # Compare all other methods to VDC
   result <- df %>%
-    filter(Method != {{ref_level}}) %>%
+    #filter(Method != {{ref_level}}) %>%
     group_by(Method) %>%
-    select(Method, strain, species, genus, family, class, order, phylum) %>%
+    dplyr::select(Method, strain, species, genus, family, class, order, phylum) %>%
     distinct() %>%
     summarize(
       strain = length(setdiff(unlist(ref_data$ref_strain), strain)),
@@ -1737,7 +1739,7 @@ u <- plot_missing_taxa(seq_dat, "UF") + guides(color = "none")
 un <- plot_missing_taxa(seq_dat, "UNC") 
 
 s8 <- (p | v | n | u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
-
+s8
 #ggsave(s8, filename = "analysis_and_figures/publication_ready_figure/supplement_figures/n_missing_taxa.png", height = 4, width = 14, units = "in")
 ```
 
@@ -1746,7 +1748,7 @@ s8 <- (p | v | n | u | m | un) + plot_layout(guides = "collect", axes = "collect
 ## Supplemental Tables
 ### Table S1: Table of viral targets
 ```{r Viral Charactertics, fig.height=10, fig.width=14}
-properties <- rio::import("analysis_and_figures/data_files/WWDv_001e_viral_properties.csv")
+properties <- rio::import("./data_files/WWDv_001e_viral_properties.csv")
 kable(properties)
 ```
 
@@ -1755,7 +1757,7 @@ kable(properties)
 
 ## Modelling data: Facet by method
 
-```{r Model with method facet, height=5, width=15}
+```{r Model with method facet, height=5, width=15, eval=F}
 # Plot WWDv_002 by method 
 coefv <- plot_f %>%
   group_by(contrast) %>%
@@ -1833,7 +1835,7 @@ fam_method #+ ggview::canvas(height = 5, width = 15, units = "in")
 
 ## Overview of raw data per viral characteristic
 
-```{r Raw viral characterisitcs, height=12, width=12}
+```{r Raw viral characterisitcs, height=12, width=12, eval=F}
 mod2_dat$Method <- factor(mod2_dat$Method, levels = c("PEG", "VDC", "NT", "UF", "MEM"))
 size <- mod2_dat %>% 
   filter(Method != "UNC") %>%
