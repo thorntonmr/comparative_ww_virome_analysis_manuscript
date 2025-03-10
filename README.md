@@ -56,13 +56,13 @@ experiment_id=""                                            # will be used to na
 - Running this workflow will produce the count data used in the sequencing portion of the results. Specifically it will yield a file that contains read counts per taxa (`Salmon_read_number`) that forms the basis for most of the figure recreations. 
 
 6. Run Kraken2 for superkingdom level sample composition
-    1. Download Kraken2 [PlusPFP database](https://benlangmead.github.io/aws-indexes/k2) (warning: large file requiring ~143 GB space)
-    2. Install [KronaTools](https://github.com/marbl/Krona/wiki/KronaTools) 
+    - Download Kraken2 [PlusPFP database](https://benlangmead.github.io/aws-indexes/k2) (warning: large file requiring ~143 GB space)
+    - Install [KronaTools](https://github.com/marbl/Krona/wiki/KronaTools) 
         - Set binary path `export PATH=$PATH:/path/to/Krona/KronaTools/bin`
-    3. Open `scripts/kraken2.sh` in text editor
+    - Open `scripts/kraken2.sh` in text editor
         - Add path to fastq files: in the publication, the post-QC fastq files `<filename>_trimmed.fastq.gz` were used 
         - Add path to PlusPFP database  
-    4. Run `scripts/kraken2.sh`
+    - Run `scripts/kraken2.sh`
 
 7. Run `scripts/lofreq.sh` to produce `.vcf` files used for nucleotide diversity calculations.
     - As before open the file in a text editor and edit the appropriate fields in the `# Set Variables` block
