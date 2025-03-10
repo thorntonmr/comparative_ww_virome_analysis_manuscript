@@ -12,11 +12,14 @@ git clone https://github.com/thorntonmr/comparative_ww_virome_analysis_manuscrip
 https://www.ebi.ac.uk/ena/browser/view/PRJEB86516
 ```
 
-2. Create environment
+2. Create environment and install dependencies
 ```
 # Create conda env (or mamba) from file
 conda create -f environment.yml
 conda activate metamap
+
+# Install R dependencies
+Rscript analysis_and_figures/install_r_dependencies.R
 ```
 
 3. Get requisite files
