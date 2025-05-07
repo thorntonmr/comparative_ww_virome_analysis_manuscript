@@ -212,24 +212,6 @@ get_nt_div <- function(vcf_file) {
 }
 ```
 
--   Read in formatted data frames.
-
--   data was cleaned and formatted prior \[see `./analysis/data_files/file_processing_script.R`\]
-
--   Kraken data used for Fig 2b overview of sample composition. Otherwise all analysis is based on `seq_data`
-
-Auxdata = Compiled characteristics (nucleotide, type of genome, particle size, genome size, envelope) using viralzone for each genus observed in the samples. In the rare case where genus level info was not available, family level info was supplied at the genus scale. Unclassified genus were also filled in with family level info. Size class is defined like via the following:
-
--   Small \<= 75nm
-
--   75nm \< Mid\< 150nm
-
--   150nm \<= Large
-
--   for none spherical shapes use smallest dimension and largest dimension
-
--   if size range is provided, the rounded mean of the upper and lower limits were used.
-
 ```{r read_data}
 data_dir <- "./data_files"
 
@@ -284,7 +266,7 @@ auxdata <- read.delim(paste0(data_dir, "/virus_genus_characteristic.tsv"), sep =
 pi_num <- read.delim(paste0(data_dir, "/processed_individual_nt_diversity_file.tsv"), sep = "\t")
 
 join_dat <- seq_dat_updated_wwtp %>% 
-  select(WWTP, Method, Replicate, "accession" = Accession, strain, genus, species, family, bases_covered_10x)
+  dplyr::select(WWTP, Method, Replicate, "accession" = Accession, strain, genus, species, family, bases_covered_10x)
 
 # Get pi calculations 
 tax_di <- pi_num %>%
@@ -299,7 +281,23 @@ tax_di <- pi_num %>%
 
 ```
 
+-   Read in formatted data frames.
 
+-   data was cleaned and formatted prior \[see `./analysis/data_files/file_processing_script.R`\]
+
+-   Kraken data used for Fig 2b overview of sample composition. Otherwise all analysis is based on `seq_data`
+
+Auxdata = Compiled characteristics (nucleotide, type of genome, particle size, genome size, envelope) using viralzone for each genus observed in the samples. In the rare case where genus level info was not available, family level info was supplied at the genus scale. Unclassified genus were also filled in with family level info. Size class is defined like via the following:
+
+-   Small \<= 75nm
+
+-   75nm \< Mid\< 150nm
+
+-   150nm \<= Large
+
+-   for none spherical shapes use smallest dimension and largest dimension
+
+-   if size range is provided, the rounded mean of the upper and lower limits were used.
 
 # Figure 1: Evaluating dPCR performance per method
 
@@ -442,19 +440,19 @@ domain_plot$Tax_name <- factor(domain_plot$Tax_name, levels = c("unclassified", 
 domain_plot$Method <- factor(domain_plot$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
 
 f2a <- ggplot(domain_plot, aes(x = Sample, y = Percent_fragments, fill = Tax_name, alpha = Tax_name)) +
-  geom_bar(stat = "identity", color = "black", width = 1, position = "fill") +
+  geom_bar(stat = "identity", color = "black", width = 1, position = "fill", alpha = 0.8) +
   theme_bw() + 
   facet_grid(~Method, scales = "free_x") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   scale_fill_manual(values = c("grey90", "#E3D36B", "#7A8FA3", "#92BBA8", "sienna2")) +
-  scale_alpha_manual(values = c(0.8, 0.8, 0.8, 0.8, 0.9)) +
+  #scale_alpha_manual(values = c(0.8, 0.8, 0.8, 0.8, 0.9)) +
   labs(
     title = "Sample composition",
     x = "",
     y = "Fraction Reads Assigned",
     fill = "B) Superkingdom",
   ) +
-  guides(alpha = "none", fill = guide_legend(override.aes = list(alpha = 0.6)))
+  guides(alpha = "none", fill = guide_legend(override.aes = list(alpha = 0.8)))
 
 f2a
 ```
@@ -687,7 +685,7 @@ vir <- wwdv_002 %>%
   group_by(Method, Replicate, strain, species, genus, family) %>%
   summarize(Salmon_read_number = sum(Salmon_read_number)) %>%
   ungroup() %>%
-  select(Method, Replicate, strain, species, genus, family, Salmon_read_number) %>%
+  dplyr::select(Method, Replicate, strain, species, genus, family, Salmon_read_number) %>%
   group_by(Method, strain) %>%
   mutate(mean_reads = mean(Salmon_read_number)) %>% 
   mutate(
@@ -699,12 +697,12 @@ vir <- wwdv_002 %>%
 ref <- vir %>% 
   filter(Method == "UNC") %>%
   mutate(ref_mean_reads = mean_reads, ref_reads = Salmon_read_number) %>%
-  select(strain, Replicate, species, genus, family, ref_reads, ref_mean_reads)
+  dplyr::select(strain, Replicate, species, genus, family, ref_reads, ref_mean_reads)
 
 # Divide each sample replicate by the mean of the reference
 mod2_dat <- vir %>% 
-  dplyr::left_join(ref %>% ungroup() %>% select(-Method)) %>% 
-  select(-mean_reads) %>%
+  dplyr::left_join(ref %>% ungroup() %>% dplyr::select(-Method)) %>% 
+  dplyr::select(-mean_reads) %>%
   mutate(fold_enrichment_reads = Salmon_read_number / ref_reads) %>% 
   filter(!is.na(fold_enrichment_reads)) 
 
@@ -738,12 +736,12 @@ fam_comparison <- comparisons(
   mutate(contrast = str_remove_all(contrast, "mean\\(|\\)")) %>%
   mutate(signif = case_when(
     p.value > 0.05 ~ "ns",
-    p.value <= 0.001 & estimate < 0 ~ "Sig-***",
-    p.value <= 0.001 & estimate > 0 ~ "Sig+***",
-    p.value <= 0.01 & estimate < 0 ~ "Sig-**",
-    p.value <= 0.01 & estimate > 0 ~ "Sig+**",
-    p.value <= 0.05 & estimate < 0 ~ "Sig-*",
-    p.value <= 0.05 & estimate > 0 ~ "Sig+*"))
+    p.value <= 0.001 & estimate < 0 ~ "(‒)Sig***",
+    p.value <= 0.001 & estimate > 0 ~ "(+)Sig***",
+    p.value <= 0.01 & estimate < 0 ~ "(‒)Sig**",
+    p.value <= 0.01 & estimate > 0 ~ "(+)Sig**",
+    p.value <= 0.05 & estimate < 0 ~ "(‒)Sig*",
+    p.value <= 0.05 & estimate > 0 ~ "(+)Sig*"))
 
 # Extract pairwise methods significance tests for each sizeclass level
 out <- list()
@@ -767,7 +765,7 @@ out_fam <- out %>% bind_rows() %>% group_by(family) %>% distinct(term, .keep_all
 
 # create df to plot significance levels between methods within a sizeclass
 sig <- out_fam %>%
-  select(term, family, p.value) %>%
+  dplyr::select(term, family, p.value) %>%
   separate(term, into = c("group1", "group2"), sep = "\\) - \\(") %>%
   ungroup() %>%
   mutate(
@@ -796,7 +794,7 @@ sig <- sig %>% mutate(max = max_val$max)
 error_size <- jitter_dat %>% 
   group_by(family, Method) %>% 
   summarize(q975 = quantile(fold_change, 0.975), q25 = quantile(fold_change, 0.025)) %>% 
-  left_join(jitter_dat %>% ungroup() %>% select(Method, contrast)) %>%
+  left_join(jitter_dat %>% ungroup() %>% dplyr::select(Method, contrast)) %>%
   distinct(contrast, .keep_all = T)
 
 # calculate 95% conf intervals
@@ -807,16 +805,16 @@ plot_f <- fam_comparison %>%
   mutate(across(c(estimate, conf.low, conf.high), ~ 10^.))
 ```
 
-```{r Fig 3 Taxonomy, height=5, width=15}
+```{r Fig 3 Taxonomy, fig.height=4, fig.width=12}
 # Sign colors
 sig_colors <- c(
   "ns" = "grey",
-  "Sig+***" = "#F45C10",
-  "Sig+**" = "#FB8A30",
-  "Sig+*" = "#FEC368",
-  "Sig-*" = "#A3C1E0",
-  "Sig-*" = "#78AEDD",
-  "Sig-***" = "#4D94DB"
+  "(+)Sig***" = "#F45C10",
+  "(+)Sig**" =  "#FB8A30",
+  "(+)Sig*" =   "#FEC368",
+  "(‒)Sig*" =   "#A3C1E0",
+  "(‒)Sig*" =   "#78AEDD",
+  "(‒)Sig***" = "#4D94DB"
 )
 
 # Clean labels
@@ -860,18 +858,19 @@ f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
     xmin = "group1",
     xmax = "group2",
     y.position = "max",
-    step.increase = 0.06,
+    step.increase = 0.07,
     step.group.by = "family",
     coord.flip = F,
     bracket.size = 0.3,
     tip.length = 0.01,
-    label.size = 3,
+    label.size = 3.5,
     bracket.nudge.y = -0.75
   ) +
   theme_bw() +
   facet_wrap(
-    ~family, 
-    ncol = length(unique(plot_f$family)), 
+    ~family,
+    nrow = 2,
+    #ncol = length(unique(plot_f$family)), 
     strip.position = "top"
     ) +
   labs(
@@ -893,7 +892,7 @@ f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
     breaks = c(0.001, 0.01, 0.1, 1, 10, 100)
   ) 
 
-f3 + ggview::canvas(height = 4, width = 12, units = "in")
+f3 + ggview::canvas(height = 7, width = 9, units = "in")
 ```
 
 ## Publication: Figure 3  
@@ -972,7 +971,7 @@ out_df$Method <- factor(out_df$Method , levels = c("UNC", "MEM", "UF", "NT", "VD
 
 ```
 
-```{r Fig 4 plot, fig.height=4, fig.width=14, warning=FALSE}
+```{r Fig 4 plot, fig.height=5, fig.width=12, warning=FALSE}
 percentiles <- out_df %>% 
   group_by(Method) %>% 
   mutate(percentile = percent_rank(pi)*100)
@@ -1047,7 +1046,7 @@ f4 <- ggplot(out_df, aes(x = Method, y = pi)) +
   facet_grid(~comparison, scales = "free") + 
   guides(fill = "none")
 
-f4 + ggview::canvas(height = 5, width = 12)
+f4 #+ ggview::canvas(height = 5, width = 12)
 ```
 
 ## Publication: Figure 4  
@@ -1387,9 +1386,19 @@ knitr::include_graphics("./publication_ready_figure/supplemental_figures/supp_fi
 
 -   Provide the raw overview of method performance by target
 
-```{r Suppl_Fig_2, fig.height=6, fig.width=12, eval=F}
+```{r Suppl_Fig_2, fig.height=6, fig.width=9, eval=T}
+mean_quants <- dpcr_cleaned %>%
+  filter(!Method %in% c("DE", "UNC", "VDCP")) %>%
+  filter(!Target %in% c("Astrovirus", "RSV", "HPV-E1")) %>%
+  mutate(Method = ifelse(Method == "UNC_Sp", "UNC", Method)) %>%
+  group_by(Method, Target) %>%
+  summarize(mean_quant = mean(Concentration),
+            sd_quant = sd(Concentration))
+
+mean_quants$Method <- factor(mean_quants$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
+
 # plot total sum of all mean virus quants per method
-f2s <- ggplot(mean_quants, aes(x = Method, y = mean_quant, fill = Method)) +
+sf2a <- ggplot(mean_quants, aes(x = Method, y = mean_quant, fill = Method)) +
   theme_bw() +
   geom_bar(
     stat = "identity", 
@@ -1407,17 +1416,62 @@ f2s <- ggplot(mean_quants, aes(x = Method, y = mean_quant, fill = Method)) +
     aes(ymin = mean_quant - sd_quant, ymax = mean_quant + sd_quant), 
     width = 0.2
     ) +
-  facet_wrap(~Target, ncol = 4, scales = "free") +
+  facet_wrap(~Target, ncol = 3, scales = "free") +
   labs(
     title = "Quantification Results",
     x = "Method",
     y = "Concentration [cp/uL]"
   ) 
 
-f2s# + canvas(height = 6, width = 12)
+```
 
-#ggsave(plot = f2s, filename = "./publication_ready_figure/supplement_figures/dpcr_raw_quants.png", height = 6, width = 12)
+```{r Background levels of spike ins, fig.height=12, fig.width=9}
+# Background levels of spike-ins in WW
+file <- "./data_files/dPCR_no-spike-controls.csv"
+bg <- read.delim(file, sep = ",", header = T) %>% filter(Method != "VDCP")
 
+# Calculate as a percentage of total signal
+to_join <- dpcr_cleaned %>% 
+  filter(Viral_type == "Spike-in") %>% 
+  rename("Conc_total" = "Concentration") %>% 
+  dplyr::select(Method, Replicate, Target, Conc_total) %>%
+  group_by(Method, Target) %>%
+  summarize(mean_spike_conc = mean(Conc_total))
+
+bg2 <- bg %>% 
+  left_join(to_join) %>%
+  mutate(bg_percent_total = Concentration / mean_spike_conc * 100)
+
+# Create plots
+bg$Method <- factor(bg$Method, levels = c("MEM", "UF", "NT", "VDC", "PEG"))
+sf2b <- ggplot(bg, aes(x = Method, y = Concentration, fill = Method)) +
+  geom_bar(stat = "identity", color = "black", alpha = 0.6) +
+  facet_wrap(~Target, nrow = 1) +
+  scale_fill_manual(values = pal) + canvas(width = 6, height = 3) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    legend.position = "none"
+    ) +
+  labs(
+    title = "Background concentrations of spike-ins in WW",
+    y = "Concentration [ng/uL]"
+  )
+  
+bg2$Method <- factor(bg2$Method, levels = c("MEM", "UF", "NT", "VDC", "PEG"))
+sf2c <- ggplot(bg2, aes(x = Method, y = bg_percent_total, fill = Method)) +
+  geom_bar(stat = "identity", color = "black", alpha = 0.6) +
+  facet_wrap(~Target, nrow = 1) +
+  scale_fill_manual(values = pal) + canvas(width = 6, height = 3) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    legend.position = "none"
+    ) +
+  labs(
+    title = "Background as a percentage of total signal",
+    y = "% total signal"
+  )
+
+(sf2a / sf2b / sf2c) + plot_layout(heights = c(4,1,1)) + plot_annotation(tag_levels = "A") 
 ```
 
 
@@ -1538,7 +1592,8 @@ s3b <- ggplot(mean_quants %>% filter(Target != "16S"), aes(x = Method, y = cv)) 
   ) +
   guides(color = "none", fill = guide_legend(override.aes = list(size = 5)))
 
-(s3a + s3b) + plot_layout(widths = c(3,1)) + plot_annotation(tag_levels = "A") #+ canvas(height=4, width = 15)
+#(s3a + s3b) + plot_layout(widths = c(3,1)) + plot_annotation(tag_levels = "A") #+ canvas(height=4, width = 15)
+s3a
 ```
 
 ### S4: Read fate plot
@@ -1638,7 +1693,7 @@ sp1 <- ggplot(plot_comp, aes(x = relative_quant, y = relative_abund_seq)) +
       ) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
   labs(
-    #title = "dPCR vs. Sequencing: Relative Abundance",
+    title = "dPCR vs. Sequencing: Relative Abundance",
     x = "dPCR Abundance",
     y = "Sequencing Abundance"
   )
@@ -1653,9 +1708,7 @@ sp1 + (sp1 + facet_wrap(~Method)) + plot_layout(guides = "collect", axis_titles 
 
 ### S6: Viral charactersitcs model output
 
-```{r Suppl_Fig_6}
-
-```
+- For figure generation code see `model_viral_characteristics.R`
 
 
 ### S7: Genus level distribution of bias
@@ -1750,6 +1803,49 @@ s8
 ```{r Viral Charactertics, fig.height=10, fig.width=14}
 properties <- rio::import("./data_files/WWDv_001e_viral_properties.csv")
 kable(properties)
+```
+
+### Table S: Concentrations of spike-in viruses
+```{r spike-in concentration table}
+# 1:10 diluted DE samples were already multiplied by 10 in file_processing_script
+de <- dpcr %>% 
+  filter(Method == "DE",  Viral_type == "Spike-in") %>%
+  dplyr::select(-Sample, -Concentration_adj)
+
+# Set variables
+dpcr_rxn_dilution_factor <- 40/2 # 2uL input in 40uL total reaction volume
+initial_volume <- 1500 # uL
+extract_volume <- 90   # uL
+ww_volume <- 600       # mL
+
+# Calculate theoretical concentration in 600mL WW
+## Since the replicates are actually sub-divisions of 500ul each of the same 1500L stock we add the n_copies from each replicate
+
+# Get copy numbers of each target in the extract
+de_conc_extract <- de %>%
+  rowwise() %>%
+  mutate(
+    extract_concentration = Concentration * dpcr_rxn_dilution_factor,
+    n_cps_extract = extract_concentration * extract_volume
+    )
+
+# Sum total copies for each target
+total_cps_per_target <- de_conc_extract %>%
+  group_by(Target) %>%
+  summarize(total_cps = sum(n_cps_extract))
+
+# Calculate concentration in 600mL WW
+spike_in_concs <- total_cps_per_target %>%
+  mutate(
+    spiked_conc_per_uL = total_cps / ww_volume * 1000,
+    spiked_conc_per_mL = total_cps / ww_volume
+  )
+
+kable(
+  spike_in_concs, 
+  col.names = c("Target", "Total Genome Copies", "Spiked concentration [gc/uL]", "Spiked concentration [gc/mL]"), 
+  caption = "Quantification of spiked-in viral targets"
+  )
 ```
 
 
