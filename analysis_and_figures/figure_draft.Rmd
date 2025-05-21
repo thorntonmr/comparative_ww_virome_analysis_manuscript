@@ -108,7 +108,7 @@ plot_pcoa <- function(matrix, title, df){
   plot_pts$Method <- factor(plot_pts$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
   p <- plot_pts %>%
     ggplot(., aes(x = PCoa1, y = PCoa2, color = Method)) +
-    geom_point(size = 2.5, aes(fill = Method), shape = 21, alpha = 0.5)+ 
+    geom_point(size = 2.5, aes(fill = Method), shape = 21, alpha = 0.8, show.legend = F)+ 
     theme_bw() +
     labs(title = paste0(title)) +
     xlab(paste0("PCoA1: ", round(per_ex[1], digits = 2), "%")) +
@@ -440,19 +440,21 @@ domain_plot$Tax_name <- factor(domain_plot$Tax_name, levels = c("unclassified", 
 domain_plot$Method <- factor(domain_plot$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
 
 f2a <- ggplot(domain_plot, aes(x = Sample, y = Percent_fragments, fill = Tax_name, alpha = Tax_name)) +
-  geom_bar(stat = "identity", color = "black", width = 1, position = "fill", alpha = 0.8) +
+  geom_bar(stat = "identity", color = "white", width = 1, position = "fill", alpha = 0.8) +
   theme_bw() + 
   facet_grid(~Method, scales = "free_x") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  scale_fill_manual(values = c("grey90", "#E3D36B", "#7A8FA3", "#92BBA8", "sienna2")) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    legend.key = element_rect(color = NA, fill = NA)
+    ) +
+  scale_fill_manual(values = c("grey70", "#E3D36B", "#7A8FA3", "#72BBA8", "sienna2")) +
   #scale_alpha_manual(values = c(0.8, 0.8, 0.8, 0.8, 0.9)) +
   labs(
     title = "Sample composition",
     x = "",
     y = "Fraction Reads Assigned",
     fill = "B) Superkingdom",
-  ) +
-  guides(alpha = "none", fill = guide_legend(override.aes = list(alpha = 0.8)))
+  ) 
 
 f2a
 ```
@@ -480,7 +482,8 @@ f2b <- ggplot(heat_dat, aes(x = Sample, y = reorder(species, Salmon_read_number)
   theme(
     axis.text.x = element_text(angle = 90, size = 8, hjust = 1, vjust = 0.5),
     axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
+    axis.ticks.y = element_blank(),
+    legend.position = "bottom"
   ) +
   labs(
     title = "Relative virus abundance",
@@ -527,6 +530,10 @@ f2c <- ggplot(plot_richnessRatio, aes(x = Method, y = srr, fill = Method)) +
 
 f2c
 ```
+```{r, fig.height=8, fig.width=12}
+((f2c + theme_bw()) + f2e) / f4
+```
+
 
 ## Figure 2D: PCoA plot of beta diversity (aitchison distance)
 
@@ -538,9 +545,9 @@ mat <- wwdv_002 %>%
 
 hve <- plot_pcoa(mat, "Viral beta diversity", df = wwdv_002)
 
-f2d <- hve + theme_minimal()
+f2d <- hve + theme_minimal() + guides(fill = guide_legend(override.aes = list(alpha = 0.8))) + labs(fill = "C,D,E) Method")
 
-f2d
+f2d 
 ```
 
 ## Figure 2E: Fold enrichment per method (comparison to mean unconcentrated values)
@@ -607,7 +614,8 @@ f2e <- ggplot(kwd) +
   #geom_jitter(width = 0.1, alpha = 0.5, size = 1, aes(x = reorder(Method,fold_enrichment_reads), y = fold_enrichment_reads, fill = Method)) +
   see::geom_violindot(
     aes(x = Method, y = fold_enrichment_reads, fill = Method), 
-    alpha = 0.6
+    alpha = 0.6,
+    show.legend = F
     ) +
   geom_boxplot(
     outlier.alpha = 0, 
@@ -626,11 +634,12 @@ f2e <- ggplot(kwd) +
     hide.ns = T
     ) +
   theme_bw() +
+  theme(axis.text.x = element_text(size = 10)) +
   scale_fill_manual(values = pal) + 
   scale_y_continuous(trans = "log10", breaks = c(0.01, 0.1, 1,10,100)) +
   labs(
     title = "Virus enrichment factors",
-    x= "",
+    x= "Method",
     y = "Fold Change in Read Count"
   ) 
 
@@ -640,11 +649,11 @@ f2e
 ## Publication: Figure 2
 
 ```{r Pub Figure 2, fig.width=12, fig.height=10}
-f2d <- f2d + guides(fill = "none")
+f2c <- f2c + guides(fill = "none")
 f2e <- f2e + guides(fill = "none")
 
-figure3 <- f2b + (f2a / (f2c | f2d) / (f2e + theme_minimal()) + plot_layout(heights = c(1,1,2))) + 
-  plot_layout(guides = "collect") & 
+figure2 <- f2b + (f2a / (f2c | f2d) / (f2e + theme_minimal()) + plot_layout(heights = c(1,1,2))) + 
+  #plot_layout(guides = "collect") & 
   theme(
     legend.position = "right",
     legend.box = "vertical",                # Controls the between legend alignment       
@@ -665,8 +674,8 @@ layout <- "
 AAABBBB
 "
 
-figure3 <- figure3 + plot_layout(design = layout) + plot_annotation(tag_levels = "A")
-figure3
+figure2 <- figure2 + plot_layout(design = layout) + plot_annotation(tag_levels = "A")
+figure2
 
 #ggsave(filename = "./publication_ready_figure/figure3.pdf", figure3, height = 10, width = 12)
 #ggsave(filename = "./publication_ready_figure/figure3.png", figure3, height = 10, width = 12)
@@ -869,7 +878,7 @@ f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
   theme_bw() +
   facet_wrap(
     ~family,
-    nrow = 2,
+    nrow = 1,
     #ncol = length(unique(plot_f$family)), 
     strip.position = "top"
     ) +
@@ -892,7 +901,7 @@ f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
     breaks = c(0.001, 0.01, 0.1, 1, 10, 100)
   ) 
 
-f3 + ggview::canvas(height = 7, width = 9, units = "in")
+f3 + ggview::canvas(height = 4, width = 12, units = "in")
 ```
 
 ## Publication: Figure 3  
@@ -938,17 +947,17 @@ for (i in 1:nrow(method_frame)) {
   
   df1 <- kwd_002 %>% 
     ungroup() %>%
-    select(WWTP, Method, Replicate, accession, pi) %>%
+    dplyr::select(WWTP, Method, Replicate, accession, pi) %>%
     filter(Method %in% c(a, b)) %>% 
     mutate(comparison = paste0(a, "-", b))%>%
     ungroup()
   
   # Significance testing on subset of accessions found in all replicates
   sub <- df1 %>%
-    select(WWTP, Method, Replicate, accession, pi, comparison) %>%
+    dplyr::select(WWTP, Method, Replicate, accession, pi, comparison) %>%
     group_by(accession) %>% 
     filter(n() == 6) %>%
-    select(-Replicate)
+    dplyr::select(-Replicate)
   
   div.test <- kruskal.test(x = sub$pi, g = sub$Method)
   sub <- sub %>% mutate(pvalue = div.test$p.value) %>% ungroup()
@@ -956,7 +965,7 @@ for (i in 1:nrow(method_frame)) {
 }
 
 res <- out_df %>%
-  select(comparison, pvalue) %>%
+  dplyr::select(comparison, pvalue) %>%
   distinct(comparison, .keep_all = T) %>%
   separate(comparison, into = c("group1", "group2"), sep = "-", remove = F) %>%
   mutate(sig = case_when(
@@ -1041,7 +1050,7 @@ f4 <- ggplot(out_df, aes(x = Method, y = pi)) +
     trans = "log10",  
     labels = c("0.000001", "0.00001", "0.0001", "0.001", "0.01", "0.1"), 
     breaks = c(0.000001, 0.00001, 0.0001, 0.001, 0.01, 0.1),
-    #limits = c(0.000001, 0.1)
+    limits = c(0.000001, 0.1)
   ) +
   facet_grid(~comparison, scales = "free") + 
   guides(fill = "none")
@@ -1471,7 +1480,64 @@ sf2c <- ggplot(bg2, aes(x = Method, y = bg_percent_total, fill = Method)) +
     y = "% total signal"
   )
 
-(sf2a / sf2b / sf2c) + plot_layout(heights = c(4,1,1)) + plot_annotation(tag_levels = "A") 
+```
+
+```{r Inhibition levels}
+inhib <- read.delim(
+  "/home/mthomt69/personal_folder_BACKUP/comparative_ww_virome_analysis_manuscript/analysis_and_figures/data_files/WWDv_001e_inhibition.csv",
+                    sep = ",", header = T) %>%
+  mutate(
+    Method = case_when(
+      substring(sample, 1, 2) == "NT" ~ "NT",
+      substring(sample, 1, 2) == "UF" ~ "UF",
+      substring(sample, 1, 3) == "MEM" ~ "MEM",
+      substring(sample, 1, 3) == "PEG" ~ "PEG",
+      substring(sample, 1, 3) == "VDC" ~ "VDC"
+    ),
+    Replicate = case_when(
+      endsWith(sample, "1") ~ "R1",
+      endsWith(sample, "2") ~ "R2",
+      endsWith(sample, "3") ~ "R3"
+    )
+  )
+
+# Join recoveries per target per replicate with inhibition data
+p <- rec %>% left_join(inhib, by = c("Method", "Replicate")) %>%
+  group_by(Method, Replicate, inhibition_factor) %>%
+  summarize(mean_recovery = mean(recovery))
+
+m <- lm(mean_recovery ~ inhibition_factor, data = p)
+summary(m)
+
+sf2d <- ggplot(p, aes(x = inhibition_factor, y = mean_recovery)) +
+  stat_smooth(method = "lm", alpha = 0.2) +
+  annotate(
+    geom = "label", 
+    x = -Inf, 
+    hjust = -0.1, 
+    y = 20, 
+    label = expression(paste(R^2," = 0.359; pval = 0.011"))
+    ) +
+  geom_point(
+    aes(fill = Method, color = Method), 
+    shape = 21, 
+    alpha = 0.9, 
+    size = 4
+    ) +
+  scale_fill_manual(values = pal) +
+  scale_color_manual(values = pal) +
+  theme_bw() +
+  labs(
+    title = "Inhibition vs. recovery",
+    x = "Inhibition Factor",
+    y = "Mean recovery (%)"
+    )
+```
+
+```{r SF2 plot, fig.height=11, fig.width=11}
+sf2a / ((sf2b / sf2c) | sf2d) + 
+  plot_layout(heights = c(1.5,1)) + 
+  plot_annotation(tag_levels = "A") 
 ```
 
 
@@ -1717,7 +1783,7 @@ sp1 + (sp1 + facet_wrap(~Method)) + plot_layout(guides = "collect", axis_titles 
 ```
 
 ### S8: Number of missing taxa relative to each method
-```{r Suppl_Fig_8, fig.height=4, fig.width=14}
+```{r Suppl_Fig_8, fig.height=8, fig.width=10}
 plot_missing_taxa <- function(df, ref_level) {
   ref_level <- as.character(ref_level)
   
@@ -1774,6 +1840,7 @@ plot_missing_taxa <- function(df, ref_level) {
       x = "",
       shape = "Status"
     ) +
+    theme_bw() +
     theme(
       axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)
     ) +
@@ -1791,7 +1858,7 @@ n <- plot_missing_taxa(seq_dat, "NT") + guides(color = "none")
 u <- plot_missing_taxa(seq_dat, "UF") + guides(color = "none")
 un <- plot_missing_taxa(seq_dat, "UNC") 
 
-s8 <- (p | v | n | u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
+s8 <- (p | v | n) / (u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
 s8
 #ggsave(s8, filename = "analysis_and_figures/publication_ready_figure/supplement_figures/n_missing_taxa.png", height = 4, width = 14, units = "in")
 ```
@@ -1837,7 +1904,7 @@ total_cps_per_target <- de_conc_extract %>%
 # Calculate concentration in 600mL WW
 spike_in_concs <- total_cps_per_target %>%
   mutate(
-    spiked_conc_per_uL = total_cps / ww_volume * 1000,
+    spiked_conc_per_uL = total_cps / (ww_volume * 1000),
     spiked_conc_per_mL = total_cps / ww_volume
   )
 
