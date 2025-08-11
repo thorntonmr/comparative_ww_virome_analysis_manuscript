@@ -15,6 +15,14 @@ output:
     self_contained: true
 ---
 
+<style type="text/css">
+.main-container {
+  max-width: 100% !important;
+  margin: auto;
+}
+</style>
+
+
 # Setup
 
 ```{r setup, include=FALSE}
@@ -309,7 +317,12 @@ Auxdata = Compiled characteristics (nucleotide, type of genome, particle size, g
 dtn <- dpcr %>% 
   filter(Method == "UNC") %>%
   group_by(Target) %>%
-  mutate(mean_ref_quant = mean(Concentration)) %>%
+  mutate(
+    # Adjust for unconcentrated dilution factor (500uL -> 100uL)
+    # Since the concentration is in 100uL the conc in the original 500uL needs to be divided by 5
+    Concentration = Concentration / (500 / 100), 
+    mean_ref_quant = mean(Concentration)
+    ) %>%
   ungroup() %>%
   select(Target, mean_ref_quant) %>%
   distinct(Target, .keep_all = T)
@@ -326,7 +339,7 @@ rec <- dpcr2 %>%
   mutate(
     dilution_factor = ifelse(Method != "NT", (40000 / 100), (10000 / 100)), # Input vol for all but NT is 40mL = 40000uL, elution=100uL
     expected_conc = mean_ref_quant * dilution_factor,
-    recovery = Concentration / expected_conc * 100
+    recovery = Concentration / expected_conc 
     )
 
 mean_recovery <- rec %>% 
@@ -343,14 +356,14 @@ f1a <- rec %>%
   geom_bar(stat = "identity", aes(color = Method), color = "black") +
   geom_errorbar(aes(ymin = mean_recovery - sd_recovery, ymax = mean_recovery + sd_recovery), width = 0.2) +
   geom_text(
-    aes(label = paste0(round(mean_recovery, digits = 1)), y = mean_recovery + sd_recovery), 
+    aes(label = paste0(round(mean_recovery, digits = 2)), y = mean_recovery + sd_recovery), 
     vjust = -0.5, 
     size = 2, 
     ) +
   geom_label(
     data = mean_recovery, 
     inherit.aes = F,
-    aes(label = paste0(round(as.numeric(mean_recovery), digits = 1), "%", " ±", round(sd_recovery, digits = 1)), fill = Method),
+    aes(label = paste0(round(as.numeric(mean_recovery), digits = 2), " ±", round(sd_recovery, digits = 2)), fill = Method),
     x = Inf, 
     y = Inf,
     vjust = 1.8,
@@ -361,12 +374,12 @@ f1a <- rec %>%
   ) + 
   facet_wrap(~Method, scales = "free_x", nrow = 1) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5), legend.position = "none") +
-  scale_y_continuous(breaks = c(0, 10, 20, 30, 40, 50, 60, 70), limits = c(0,70)) +
+  scale_y_continuous(breaks = seq(0, 3.5, 0.5), limits = c(0,3.5)) +
   scale_fill_manual(values = target_pal) +
   scale_color_manual(values = target_pal) +
   labs(
-    title = " Mean recovery per target",
-    y = "Mean recovery (%)",
+    title = "Concentration performance per target",
+    y = "[Measured] / [Expected]",
     x = ""
   ) 
 
@@ -415,12 +428,12 @@ f1b
 
 ## Publication: Figure 1
 
-```{r Pub_Figure_1, fig.height=9, fig.width=17}
+```{r Pub_Figure_1, fig.height=4, fig.width=14}
 figure1 <- f1a + f1b + plot_layout(widths = c(5,1), guides = "collect") + plot_annotation(tag_levels = "A") 
 figure1 #+ canvas(height = 4, width = 17)
 
 #ggsave(filename = "./publication_ready_figure/figure1.pdf", figure1, height = 4, width = 14)
-#ggsave(filename = "./publication_ready_figure/figure1.png", figure1, height = 4, width = 14)
+ggsave(filename = "./publication_ready_figure/figure1.png", figure1, height = 4, width = 14, dpi = 300)
 ```
 
 # Figure 2: Evaluating sequencing performance per method
@@ -677,8 +690,7 @@ AAABBBB
 figure2 <- figure2 + plot_layout(design = layout) + plot_annotation(tag_levels = "A")
 figure2
 
-#ggsave(filename = "./publication_ready_figure/figure3.pdf", figure3, height = 10, width = 12)
-#ggsave(filename = "./publication_ready_figure/figure3.png", figure3, height = 10, width = 12)
+ggsave(filename = "./publication_ready_figure/figure2.png", figure2, height = 10, width = 12)
 ```
 
 # Figure 3: Modelling viral taxonomy and enrichment efficiency
@@ -878,7 +890,7 @@ f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
   theme_bw() +
   facet_wrap(
     ~family,
-    nrow = 1,
+    nrow = 2,
     #ncol = length(unique(plot_f$family)), 
     strip.position = "top"
     ) +
@@ -901,14 +913,14 @@ f3 <- ggplot(plot_f, aes(x = contrast, y = estimate)) +
     breaks = c(0.001, 0.01, 0.1, 1, 10, 100)
   ) 
 
-f3 + ggview::canvas(height = 4, width = 12, units = "in")
+f3 + ggview::canvas(height = 7, width = 9, units = "in")
 ```
 
 ## Publication: Figure 3  
 ```{r Pub Figure 3, fig.height=4, fig.width=12}
 figure3 <- f3
  
-#ggsave(plot = figure3, filename = "./publication_ready_figure/figure3.png", height = 4, width = 12)
+ggsave(plot = figure3, filename = "./publication_ready_figure/figure3.png", height = 7, width = 9, dpi = 300)
 ```
 
 
@@ -1061,7 +1073,7 @@ f4 #+ ggview::canvas(height = 5, width = 12)
 ## Publication: Figure 4  
 ```{r Pub Figure 4, fig.height=4, fig.width=12}
 figure4 <- f4
-#ggsave(plot = figure4, filename = "./publication_ready_figure/figure4.png", height = 4, width = 12)
+ggsave(plot = figure4, filename = "./publication_ready_figure/figure4.png", height = 5, width = 12)
 ```
 
 
@@ -1375,7 +1387,7 @@ figure5 <- (f5b | f5a) + plot_annotation(tag_levels = "A") + plot_layout(widths 
   
 figure5 + canvas(height = 5, width = 11)
 
-ggsave(plot = figure5, filename = "./publication_ready_figure/figure5.png", height = 5, width = 14)
+ggsave(plot = figure5, filename = "./publication_ready_figure/figure5.png", height = 5, width = 11)
 ```
 
 
@@ -1484,10 +1496,11 @@ sf2c <- ggplot(bg2, aes(x = Method, y = bg_percent_total, fill = Method)) +
 
 ```{r Inhibition levels}
 inhib <- read.delim(
-  "/home/mthomt69/personal_folder_BACKUP/comparative_ww_virome_analysis_manuscript/analysis_and_figures/data_files/WWDv_001e_inhibition.csv",
+  "./data_files/WWDv_001e_inhibition.csv",
                     sep = ",", header = T) %>%
   mutate(
     Method = case_when(
+      substring(sample, 1, 3) == "UNC" ~ "UNC",
       substring(sample, 1, 2) == "NT" ~ "NT",
       substring(sample, 1, 2) == "UF" ~ "UF",
       substring(sample, 1, 3) == "MEM" ~ "MEM",
@@ -1515,7 +1528,8 @@ sf2d <- ggplot(p, aes(x = inhibition_factor, y = mean_recovery)) +
     geom = "label", 
     x = -Inf, 
     hjust = -0.1, 
-    y = 20, 
+    y = Inf,
+    vjust = 1.25,
     label = expression(paste(R^2," = 0.359; pval = 0.011"))
     ) +
   geom_point(
@@ -1528,16 +1542,18 @@ sf2d <- ggplot(p, aes(x = inhibition_factor, y = mean_recovery)) +
   scale_color_manual(values = pal) +
   theme_bw() +
   labs(
-    title = "Inhibition vs. recovery",
+    title = "Inhibition vs. performance",
     x = "Inhibition Factor",
-    y = "Mean recovery (%)"
+    y = "Mean performance"
     )
 ```
 
 ```{r SF2 plot, fig.height=11, fig.width=11}
-sf2a / ((sf2b / sf2c) | sf2d) + 
+sf2 <- sf2a / ((sf2b / sf2c) | sf2d) + 
   plot_layout(heights = c(1.5,1)) + 
   plot_annotation(tag_levels = "A") 
+
+ggsave("./publication_ready_figure/supplemental_figures/suppl_fig_2.png", sf2, height = 11, width = 11, dpi = 300)
 ```
 
 
@@ -1608,7 +1624,7 @@ s3a <- ggplot(rec_trans, aes(x = expected_conc, y = Concentration)) +
   scale_color_manual(values = target_pal) +
   facet_wrap(~Method, ncol = 5, nrow = 1) + 
   labs(
-    title = "Recovery from expected quantification",
+    title = "Quantification comparison to benchmark",
     x = "Log10 Expected quantification [cp/uL]",
     y = "Log10 Observed quantification [cp/uL]",
     fill = "Target"
@@ -1658,8 +1674,8 @@ s3b <- ggplot(mean_quants %>% filter(Target != "16S"), aes(x = Method, y = cv)) 
   ) +
   guides(color = "none", fill = guide_legend(override.aes = list(size = 5)))
 
-#(s3a + s3b) + plot_layout(widths = c(3,1)) + plot_annotation(tag_levels = "A") #+ canvas(height=4, width = 15)
-s3a
+sf3 <- (s3a + s3b) + plot_layout(widths = c(3,1)) + plot_annotation(tag_levels = "A") #+ canvas(height=4, width = 15)
+ggsave("./publication_ready_figure/supplemental_figures/suppl_fig_3.png", sf3, height = 4, width = 14, dpi = 300)
 ```
 
 ### S4: Read fate plot
@@ -1700,9 +1716,8 @@ readcountplot <- readcountdataDif %>%
   NULL
 
 fs <- readcountplot
-fs #+ canvas(height = 4, width = 7)
 
-#ggsave(plot = fs, filename = "./publication_ready_figure/supplement_figures/read_fate_plot.png", height = 4, width = 7)
+ggsave(plot = fs, filename = "./publication_ready_figure/supplemental_figures/suppl_fig_4.png", height = 4, width = 7, dpi = 300)
 ```
 
 
@@ -1766,21 +1781,45 @@ sp1 <- ggplot(plot_comp, aes(x = relative_quant, y = relative_abund_seq)) +
 
 sp1 + (sp1 + facet_wrap(~Method)) + plot_layout(guides = "collect", axis_titles = "collect", widths = c(2,3)) #+ canvas(height = 5, width = 12)
 
-#ggsave(plot = last_plot(), filename = "./publication_ready_figure/supplement_figures/dpcr_seq_concurrence.png", height = 5, width = 12)
-#cor(plot_comp$relative_abund_seq, plot_comp$relative_quant, method = "spearman")
+ggsave(
+  plot = last_plot(), 
+  filename = "./publication_ready_figure/supplemental_figures/suppl_fig_5.png", 
+  height = 5, width = 12, dpi = 300
+  )
 
 ```
 
 
-### S6: Viral charactersitcs model output
+### S6: Heatmap with species names
+```{r suppl_fig_6_heatmap}
+sf6 <- ggplot(heat_dat, aes(x = Sample, y = reorder(species, Salmon_read_number), fill = Salmon_read_number, group = Method)) +
+  geom_tile(color = "white") +
+  geom_vline(color = "white", xintercept = c(3.5, 6.5, 9.5, 12.5, 15.5), linewidth = 1) +
+  scale_fill_viridis(discrete = F, trans = "log10", name = "A) Virus abundance \nlog(Read counts)") +
+  facet_grid(~Method, scales = "free_x") +
+  theme(
+    axis.text.x = element_text(angle = 90, size = 8, hjust = 1, vjust = 0.5),
+    legend.position = "bottom"
+  ) +
+  labs(
+    title = "Relative virus abundance",
+    y = "Virus Species"
+  ) 
+
+ggsave("./publication_ready_figure/supplemental_figures/suppl_fig_6.png", height = 20, width = 12, dpi = 300)
+```
+
+
+### S7: Viral charactersitcs model output
 
 - For figure generation code see `model_viral_characteristics.R`
 
 
-### S7: Genus level distribution of bias
+### S8: Genus level distribution of bias
 ```{r Suppl_Fig_7}
 
 ```
+
 
 ### S8: Number of missing taxa relative to each method
 ```{r Suppl_Fig_8, fig.height=8, fig.width=10}
@@ -1858,9 +1897,13 @@ n <- plot_missing_taxa(seq_dat, "NT") + guides(color = "none")
 u <- plot_missing_taxa(seq_dat, "UF") + guides(color = "none")
 un <- plot_missing_taxa(seq_dat, "UNC") 
 
-s8 <- (p | v | n) / (u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
-s8
-#ggsave(s8, filename = "analysis_and_figures/publication_ready_figure/supplement_figures/n_missing_taxa.png", height = 4, width = 14, units = "in")
+s9 <- (p | v | n) / (u | m | un) + plot_layout(guides = "collect", axes = "collect_x", axis_titles = "collect_y")
+
+ggsave(
+  s9, 
+  filename = "./publication_ready_figure/supplemental_figures/suppl_fig_9.png", 
+  height = 8, width = 10, units = "in", dpi = 300
+  )
 ```
 
 
