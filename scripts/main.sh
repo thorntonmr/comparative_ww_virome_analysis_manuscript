@@ -5,7 +5,7 @@ set -euo pipefail
 version="metamap_v1.3"
 
 # Set Variables
-starting_format="bam"                   # input file format (must be either .bam or _R*.fastq.gz)
+starting_format="bam"                   # input file format (must be either bam or fastq)
 starting_dir="path/to/starting/dir"     # directory path for raw input files (bam or fastq)
 contaminant_dir="path/to/bt2_ref"       # path to bowtie2 index for contaminant reference
 mapping_reference="path/to/ref/fasta"   # path to reference sequence(s)

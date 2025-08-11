@@ -1,9 +1,8 @@
 # Input ----
-library("broom")
+library("tidyverse")
 library("performance")
 library("viridis")
 library("lmtest")
-library("ggeffects")
 library("patchwork")
 library("marginaleffects")
 
@@ -41,14 +40,17 @@ vir_joined <- vir %>%
   dplyr::left_join(ref %>% ungroup() %>% select(-Method)) %>% 
   select(-mean_reads)
 
-try <- vir_joined %>% filter(!is.na(fold_enrichment_reads)) 
+try <- vir_joined 
 
 # define factor order
 try$Method <- factor(try$Method, levels = c("UNC", "MEM", "UF", "NT", "VDC", "PEG"))
 try <- try %>% left_join(auxdata)
 
 # Model
-lm2 <- lm(log10(Salmon_read_number / ref_reads) ~ Method + envelope + sizeclass + Nuc + Method:envelope + Method:sizeclass + Method:Nuc, data = try)
+lm2 <- lm(
+  log10(Salmon_read_number / ref_reads) ~ Method + envelope + sizeclass + Nuc + Method:envelope + Method:sizeclass + Method:Nuc, 
+  data = try
+  )
 summary(lm2)
 performance::check_model(lm2)
 
